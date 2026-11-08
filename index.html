@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kisma · Votre quincaillerie, bien serrée.</title>
+  <meta name="description" content="Kisma, l'app de gestion des quincailleries du Sénégal : stock, ventes, crédits clients et caisse, même sans Internet. Wave et Orange Money, factures conformes, 30 jours d'essai gratuit.">
+  <meta name="theme-color" content="#0B0D1F">
+  <meta property="og:title" content="Kisma · Votre quincaillerie, bien serrée.">
+  <meta property="og:description" content="Stock, ventes, crédits et caisse dans une seule app, même sans Internet. Pensée pour les quincailleries du Sénégal.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_SN">
+  <meta property="og:image" content="kisma-icone.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.KISMA_PRET)document.documentElement.classList.remove('js')},4000)</script>
+</head>
+<body>
+
+<!-- Symboles réutilisés : le K de Kisma (ADR 0049), les icônes, la frise peinte des cars rapides. -->
+<svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="k-symbole" viewBox="0 0 100 100">
+      <g style="fill: var(--k, #1B2060)"><rect x="16" y="12" width="19" height="76"/><polygon points="35,37 60,12 83,12 46,50 83,88 60,88 35,63"/></g>
+      <path style="fill: var(--n, #FFC21F)" fill-rule="evenodd" d="M83 50 L76 62.12 L62 62.12 L55 50 L62 37.88 L76 37.88 Z M74 50 A5 5 0 1 0 64 50 A5 5 0 1 0 74 50 Z"/>
+    </symbol>
+    <symbol id="ecrou" viewBox="0 0 100 100"><path fill-rule="evenodd" d="M98 50 L74 91.57 L26 91.57 L2 50 L26 8.43 L74 8.43 Z M68 50 A18 18 0 1 0 32 50 A18 18 0 1 0 68 50 Z"/></symbol>
+    <symbol id="etoile" viewBox="0 0 100 100"><polygon points="50,0 61,35 96,25 70,50 96,75 61,65 50,100 39,65 4,75 30,50 4,25 39,35"/></symbol>
+    <symbol id="soleil" viewBox="0 0 100 100"><circle cx="50" cy="50" r="22"/><g><polygon points="50,0 56,20 44,20"/><polygon points="50,100 56,80 44,80"/><polygon points="0,50 20,44 20,56"/><polygon points="100,50 80,44 80,56"/><polygon points="14.6,14.6 32,24 24,32"/><polygon points="85.4,85.4 68,76 76,68"/><polygon points="85.4,14.6 76,32 68,24"/><polygon points="14.6,85.4 24,68 32,76"/></g></symbol>
+    <symbol id="losange" viewBox="0 0 100 100"><polygon points="50,0 100,50 50,100 0,50"/><polygon points="50,28 72,50 50,72 28,50" fill="var(--creux, #0B0D1F)"/></symbol>
+    <symbol id="vis" viewBox="0 0 40 120"><rect x="4" y="0" width="32" height="16" rx="5"/><path d="M12 16h16v80l-8 24-8-24z"/><path d="M10 34l20-6M10 50l20-6M10 66l20-6M10 82l20-6" stroke="var(--creux, #0B0D1F)" stroke-width="3"/></symbol>
+    <pattern id="frise" width="64" height="28" patternUnits="userSpaceOnUse">
+      <rect width="64" height="28" fill="#1B2060"/>
+      <polygon points="0,28 16,4 32,28" fill="#FFC21F"/>
+      <polygon points="32,28 48,4 64,28" fill="#E03E3E"/>
+      <circle cx="16" cy="20" r="3" fill="#1B2060"/>
+      <circle cx="48" cy="20" r="3" fill="#FFFFFF"/>
+      <rect x="0" y="0" width="64" height="3" fill="#3442D9"/>
+    </pattern>
+
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M3.5 20.5l1.4-4.1A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 10.5c.4 1.8 2 3.4 3.8 3.9l1.2-1.1 1.8.8"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11 18.5h2"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="12.5" rx="2"/><path d="M8 20.5h8M12 16.5v4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18.5a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 10a4.25 4.25 0 0 1-.5 8.5z"/></symbol>
+    <symbol id="i-cloud-off" viewBox="0 0 24 24"><path d="M7 18.5a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 10a4.25 4.25 0 0 1-.5 8.5z"/><path d="M3.5 3.5l17 17"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10.5" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-scan" viewBox="0 0 24 24"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16M8 8.5v7M11 8.5v7M14 8.5v7M17 8.5v7"/></symbol>
+    <symbol id="i-printer" viewBox="0 0 24 24"><path d="M7 9V3.5h10V9"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v6.5H7z"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.8 1.8H4.2z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.2A6 6 0 0 1 21.5 20"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 10.5h18M15.5 15h2.5"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M5 20v-8M10 20V5M15 20v-6M20 20V9"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M3.5 7.5L12 3.5l8.5 4v9L12 20.5l-8.5-4z"/><path d="M3.5 7.5L12 11.5l8.5-4M12 11.5v9"/></symbol>
+    <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 2.5h12v19l-3-2-3 2-3-2-3 2z"/><path d="M9 7.5h6M9 11.5h6M9 15.5h3.5"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M2.5 9a14 14 0 0 1 19 0M5.5 12.5a9.5 9.5 0 0 1 13 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" style="fill: currentColor"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+  </defs>
+</svg>
+
+<div class="progression" aria-hidden="true"><span></span></div>
+
+<!-- ═════════ Navigation ═════════ -->
+<header class="nav" data-nav>
+  <a class="nav__marque" href="#haut" aria-label="Kisma, retour en haut">
+    <svg class="marque__k" viewBox="0 0 100 100" aria-hidden="true" style="--k:#fff"><use href="#k-symbole"/></svg>
+    <span class="marque__nom">kisma</span>
+  </a>
+  <nav class="nav__liens" aria-label="Sections">
+    <a href="#fonctions">Fonctions</a>
+    <a href="#demo">Démo</a>
+    <a href="#hors-ligne">Hors ligne</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#questions">Questions</a>
+  </nav>
+  <a class="bouton bouton--safran bouton--petit nav__cta" href="#telecharger" data-essai data-magnet>
+    Essayer gratuitement
+  </a>
+  <button class="nav__burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" data-burger>
+    <svg viewBox="0 0 24 24" class="ico"><use href="#i-menu"/></svg>
+  </button>
+</header>
+<div class="menu" data-menu hidden>
+  <nav aria-label="Menu">
+    <a href="#fonctions">Fonctions</a>
+    <a href="#demo">Démo</a>
+    <a href="#hors-ligne">Hors ligne</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#questions">Questions</a>
+    <a href="#telecharger" class="menu__cta" data-essai>Essayer 30 jours gratuits</a>
+  </nav>
+</div>
+
+<main id="haut">
+
+<!-- ═════════ Ouverture ═════════ -->
+<section class="hero" data-hero>
+  <div class="hero__ciel" aria-hidden="true">
+    <div class="lueur lueur--vif"></div>
+    <div class="lueur lueur--safran"></div>
+    <div class="hero__grille"></div>
+    <div class="hero__spot" data-spot></div>
+    <svg class="orn orn--etoile" style="--x:8%;--y:18%;--s:38px;--c:#FFC21F;--p:.6" data-parallax="0.15"><use href="#etoile"/></svg>
+    <svg class="orn orn--soleil" style="--x:88%;--y:12%;--s:70px;--c:#E03E3E;--p:-.3" data-parallax="-0.1"><use href="#soleil"/></svg>
+    <svg class="orn orn--losange" style="--x:4%;--y:72%;--s:46px;--c:#3442D9;--p:.4" data-parallax="0.25"><use href="#losange"/></svg>
+    <svg class="orn orn--etoile" style="--x:52%;--y:8%;--s:22px;--c:#0F9AA8;--p:-.5" data-parallax="0.2"><use href="#etoile"/></svg>
+    <svg class="orn orn--ecrou" style="--x:94%;--y:64%;--s:54px;--c:#FFC21F;--p:.35" data-parallax="0.3"><use href="#ecrou"/></svg>
+    <svg class="orn orn--vis" style="--x:46%;--y:86%;--s:26px;--c:#8D98FF;--p:-.25" data-parallax="0.18" viewBox="0 0 40 120"><use href="#vis"/></svg>
+    <svg class="orn orn--ecrou" style="--x:30%;--y:92%;--s:28px;--c:#D63F8C;--p:.5" data-parallax="0.4"><use href="#ecrou"/></svg>
+  </div>
+
+  <div class="hero__contenu conteneur">
+    <div class="hero__texte">
+      <p class="puce" data-hero-in>
+        <span class="puce__point"></span>
+        <span><strong>Nangadef ?</strong> Kisma arrive sur Android, iPhone et Windows</span>
+      </p>
+      <h1 class="hero__titre" data-split>
+        Votre quincaillerie, <span class="souligne">bien serrée.<svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 16 C 60 6, 120 4, 180 10 S 270 20, 296 8" pathLength="1"/></svg></span>
+      </h1>
+      <p class="hero__chapo" data-hero-in>
+        Stock, ventes, crédits clients et caisse dans une seule app, même quand Internet coupe.
+        Pensée pour les quincailleries du Sénégal, du sac de ciment au mètre de câble.
+      </p>
+      <div class="hero__actions" data-hero-in>
+        <a class="bouton bouton--safran bouton--grand" href="#telecharger" data-essai data-magnet>
+          <svg class="ico" viewBox="0 0 24 24"><use href="#i-chat"/></svg>
+          Essayer 30 jours gratuits
+        </a>
+        <a class="bouton bouton--fantome bouton--grand" href="#demo" data-magnet>
+          <span class="bouton__play"><svg class="ico ico--plein" viewBox="0 0 24 24"><use href="#i-play"/></svg></span>
+          Jouer avec la démo
+        </a>
+      </div>
+      <ul class="hero__atouts" data-hero-in>
+        <li><svg class="ico" viewBox="0 0 24 24"><use href="#i-check"/></svg>Installation gratuite par un agent</li>
+        <li><svg class="ico" viewBox="0 0 24 24"><use href="#i-check"/></svg>Marche sans Internet</li>
+        <li><svg class="ico" viewBox="0 0 24 24"><use href="#i-check"/></svg>Wave et Orange Money</li>
+      </ul>
+    </div>
+
+    <div class="hero__scene" data-hero-scene aria-label="Une vente au comptoir faite avec Kisma sur téléphone" role="img">
+      <div class="telephone" data-tilt>
+        <div class="telephone__ecran">
+          <div class="telephone__encoche"></div>
+          <div class="app" data-auto-vente>
+            <div class="app__statut"><span>14:32</span><span class="app__reseau"><i></i><i></i><i></i><i></i></span></div>
+            <div class="app__tete">
+              <div>
+                <p class="app__titre">Vente</p>
+                <p class="app__sous">Paiement comptant</p>
+              </div>
+              <span class="app__synchro"><svg class="ico" viewBox="0 0 24 24"><use href="#i-cloud"/></svg></span>
+            </div>
+            <div class="app__recherche"><span class="loupe"></span><span data-frappe>Article, référence…</span></div>
+            <ul class="app__liste">
+              <li data-article="0"><span class="tag" data-famille="MAC">MAC</span><span class="nom">Ciment CEM II 42,5<small>sac 50 kg</small></span><span class="droite"><b>4 600</b><span class="pastille pastille--ok" data-stock>40 sac</span></span></li>
+              <li data-article="1"><span class="tag" data-famille="FER">FER</span><span class="nom">Fer à béton HA10<small>barre 12 m</small></span><span class="droite"><b>3 500</b><span class="pastille pastille--ok" data-stock>120 barre</span></span></li>
+              <li data-article="2"><span class="tag" data-famille="TOI">TOI</span><span class="nom">Tôle ondulée 0,30<small>feuille</small></span><span class="droite"><b>6 500</b><span class="pastille pastille--ok" data-stock>25 feuille</span></span></li>
+              <li data-article="3"><span class="tag" data-famille="PLB">PLB</span><span class="nom">Robinet laiton 1/2"<small>pièce</small></span><span class="droite"><b>3 000</b><span class="pastille pastille--rupture">0 pièce</span></span></li>
+              <li data-article="4"><span class="tag" data-famille="PEI">PEI</span><span class="nom">Peinture à eau<small>seau 20 L</small></span><span class="droite"><b>25 000</b><span class="pastille pastille--ok">6 seau</span></span></li>
+            </ul>
+            <div class="app__barre" data-barre>
+              <div>
+                <span class="app__barre-nb"><b data-nb>0</b> article<span data-pluriel>s</span></span>
+                <span class="app__barre-total"><b data-total>0</b> FCFA</span>
+              </div>
+              <span class="app__encaisser" data-encaisser>Encaisser</span>
+            </div>
+            <nav class="app__onglets" aria-hidden="true">
+              <span class="actif"><svg class="ico" viewBox="0 0 24 24"><use href="#i-receipt"/></svg>Vente</span>
+              <span><svg class="ico" viewBox="0 0 24 24"><use href="#i-chart"/></svg>Ventes</span>
+              <span><svg class="ico" viewBox="0 0 24 24"><use href="#i-box"/></svg>Stock</span>
+              <span><svg class="ico" viewBox="0 0 24 24"><use href="#i-users"/></svg>Clients</span>
+            </nav>
+            <div class="app__encaisse" data-encaisse>
+              <svg class="coche" viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg>
+              <p class="app__encaisse-montant"><b data-total-final>0</b> FCFA</p>
+              <p class="app__encaisse-detail">Encaissé par Wave · TIC-2026-A-00012</p>
+              <p class="app__encaisse-merci">Jërëjëf !</p>
+            </div>
+            <span class="doigt" data-doigt></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bulle bulle--stock" data-parallax="-0.08" data-flotte>
+        <span class="bulle__ico bulle__ico--attente"><svg class="ico" viewBox="0 0 24 24"><use href="#i-bell"/></svg></span>
+        <span><b>Stock bas</b><small>Ciment CEM II · 5 sacs</small></span>
+      </div>
+      <div class="bulle bulle--wave" data-parallax="0.1" data-flotte style="--d:1.4s">
+        <span class="bulle__ico bulle__ico--ok"><svg class="ico" viewBox="0 0 24 24"><use href="#i-wallet"/></svg></span>
+        <span><b>+25 000 FCFA</b><small>Reçu par Wave</small></span>
+      </div>
+      <div class="bulle bulle--credit" data-parallax="-0.14" data-flotte style="--d:.7s">
+        <span class="bulle__ico bulle__ico--vif"><svg class="ico" viewBox="0 0 24 24"><use href="#i-chat"/></svg></span>
+        <span><b>Relance envoyée</b><small>Moussa · 15 000 FCFA dus</small></span>
+      </div>
+    </div>
+  </div>
+
+  <a class="hero__suite" href="#cahier" aria-label="Découvrir la suite">
+    <span></span>
+  </a>
+</section>
+
+<!-- ═════════ Les bandes peintes ═════════ -->
+<div class="bandes" aria-hidden="true">
+  <div class="bande bande--safran"><div class="bande__piste" data-marquee="1">
+    <span>Ciment</span><i>✦</i><span>Fer à béton</span><i>✦</i><span>Tôle ondulée</span><i>✦</i><span>Robinets</span><i>✦</i><span>Câbles</span><i>✦</i><span>Peinture</span><i>✦</i><span>Pointes</span><i>✦</i><span>Tuyaux PVC</span><i>✦</i><span>Cadenas</span><i>✦</i>
+  </div></div>
+  <div class="bande bande--vif"><div class="bande__piste" data-marquee="-1">
+    <span>Stock</span><i>●</i><span>Ventes</span><i>●</i><span>Crédits</span><i>●</i><span>Caisse</span><i>●</i><span>Wave</span><i>●</i><span>Orange Money</span><i>●</i><span>Hors ligne</span><i>●</i><span>Factures</span><i>●</i><span>Devis</span><i>●</i>
+  </div></div>
+</div>
+
+<!-- ═════════ Le cahier, c'est fini ═════════ -->
+<section class="cahier" id="cahier" data-cahier>
+  <div class="cahier__colle">
+    <div class="conteneur cahier__grille">
+      <div class="cahier__intro">
+        <p class="surtitre">Avant Kisma</p>
+        <h2 class="titre-section" data-split>Le cahier, c'est fini.</h2>
+        <p class="texte-section">Un cahier se mouille, se perd, se raye. Et il ne dit jamais combien de sacs il reste vraiment. Kisma garde tout, au franc près.</p>
+      </div>
+
+      <div class="cahier__duo">
+        <div class="page" data-page>
+          <div class="page__marge"></div>
+          <div class="page__tache"></div>
+          <p class="page__date">Lundi 2 novembre</p>
+          <p class="note" data-note="0"><span>Ciment 3 sacs → Moussa <em>(crédit ??)</em></span></p>
+          <p class="note" data-note="1"><span>Fer HA10 : il en reste… 12 ? 20 ?</span></p>
+          <p class="note" data-note="2"><span>Caisse du soir : il manque 2 500 F</span></p>
+          <p class="note note--rature">Tôle 4 feuilles <s>18 000</s> 26 000</p>
+        </div>
+
+        <ul class="solutions">
+          <li class="solution" data-solution="0">
+            <span class="tag tag--grand" data-famille="CRD">CRD</span>
+            <div><h3>Chaque crédit a son nom</h3><p>Plafond par client, reste dû, relance sur WhatsApp en un geste.</p></div>
+          </li>
+          <li class="solution" data-solution="1">
+            <span class="tag tag--grand" data-famille="STK">STK</span>
+            <div><h3>Le stock exact, article par article</h3><p>Chaque vente, réception ou sortie le met à jour. Alerte avant la rupture.</p></div>
+          </li>
+          <li class="solution" data-solution="2">
+            <span class="tag tag--grand" data-famille="CAI">CAI</span>
+            <div><h3>Une caisse par vendeur</h3><p>Ouverture, clôture, écart signalé au patron. Fini le « je ne sais pas ».</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ Fonctions phares ═════════ -->
+<section class="fonctions" id="fonctions">
+  <div class="conteneur">
+    <p class="surtitre surtitre--safran" data-reveal>Fonctions phares</p>
+    <h2 class="titre-section" data-split>Tout ce qu'il faut au comptoir. Rien de trop.</h2>
+
+    <div class="bento">
+      <article class="carte carte--ventes" data-reveal data-tilt-carte>
+        <div class="carte__tete"><span class="tag" data-famille="VEN">VEN</span><h3>Ventes et documents</h3></div>
+        <p>Au sac, au kilo, à la barre ou au mètre. Ticket, facture, devis, bon de livraison et avoir, prêts en un geste et partagés sur WhatsApp.</p>
+        <div class="mini-ticket" data-anim="ticket">
+          <div class="mini-ticket__ligne"><span>Ciment CEM II · 3 sac</span><b>13 800</b></div>
+          <div class="mini-ticket__ligne"><span>Câble 2,5 mm² · 2,5 m</span><b>833</b></div>
+          <div class="mini-ticket__ligne"><span>Peinture à eau · 1 seau</span><b>25 000</b></div>
+          <div class="mini-ticket__total"><span>Total</span><b><span data-compte="39633">39 633</span> FCFA</b></div>
+        </div>
+        <div class="documents" aria-hidden="true">
+          <span>Ticket</span><span>Facture</span><span>Devis</span><span>BL</span><span>Avoir</span>
+        </div>
+        <p class="partage"><svg class="ico" viewBox="0 0 24 24"><use href="#i-chat"/></svg><span><b>Facture FAC-2026-00148</b> partagée sur WhatsApp avec le client</span></p>
+      </article>
+
+      <article class="carte carte--stock" data-reveal data-tilt-carte>
+        <div class="carte__tete"><span class="tag" data-famille="STK">STK</span><h3>Stock en temps réel</h3></div>
+        <p>Il descend à chaque vente. Kisma prévient avant la rupture et propose la commande.</p>
+        <ul class="jauges" data-anim="jauges">
+          <li><span>Ciment</span><i style="--v:.14" class="bas"></i><b>5 sac</b></li>
+          <li><span>Fer HA10</span><i style="--v:.8"></i><b>120 barre</b></li>
+          <li><span>Tôle</span><i style="--v:.5"></i><b>25 feuille</b></li>
+        </ul>
+      </article>
+
+      <article class="carte carte--credits" data-reveal data-tilt-carte>
+        <div class="carte__tete"><span class="tag" data-famille="CRD">CRD</span><h3>Crédits clients</h3></div>
+        <p>Plafond, reste dû, acomptes. La relance part sur WhatsApp, polie et chiffrée.</p>
+        <div class="client" data-anim="credit">
+          <div class="client__tete"><span class="avatar">MD</span><span><b>Moussa Diallo</b><small>Plafond 50 000 FCFA</small></span></div>
+          <div class="client__jauge"><i style="--v:.3"></i></div>
+          <div class="client__chiffres"><span>Doit <b>15 000 FCFA</b></span><span>30 %</span></div>
+          <div class="whatsapp-bulle">Bonjour Moussa, il reste 15 000 FCFA à régler chez nous. Jërëjëf !</div>
+        </div>
+      </article>
+
+      <article class="carte carte--paiements" data-reveal data-tilt-carte>
+        <div class="carte__tete"><span class="tag" data-famille="PAY">PAY</span><h3>Wave et Orange Money</h3></div>
+        <p>Espèces, Wave, Orange Money ou plusieurs à la fois. Le paiement mobile est vérifié tout seul.</p>
+        <div class="modes" data-anim="modes">
+          <span>Espèces</span><span class="on">Wave</span><span>Orange Money</span>
+        </div>
+        <div class="recu"><svg class="ico" viewBox="0 0 24 24"><use href="#i-check"/></svg><b>+15 000 FCFA</b> vérifié</div>
+      </article>
+
+      <article class="carte carte--caisse" data-reveal data-tilt-carte>
+        <div class="carte__tete"><span class="tag" data-famille="CAI">CAI</span><h3>Caisse par vendeur</h3></div>
+        <p>Chacun ouvre et clôt sa caisse. L'écart se voit tout de suite.</p>
+        <div class="cloture" data-anim="cloture">
+          <div><small>Attendu</small><b>187 500</b></div>
+          <div><small>Compté</small><b data-compte="187500">187 500</b></div>
+          <div class="cloture__ecart"><svg class="ico" viewBox="0 0 24 24"><use href="#i-check"/></svg>Écart 0 FCFA</div>
+        </div>
+      </article>
+
+      <article class="carte carte--tableau" data-reveal data-tilt-carte>
+        <div class="carte__tete"><span class="tag" data-famille="TDB">TDB</span><h3>Tableau de bord</h3></div>
+        <p>Les ventes du jour heure par heure, les marges, ce qui se vend le plus.</p>
+        <div class="histo" data-anim="histo">
+          <p class="histo__total"><b data-compte="487500">487 500</b> FCFA aujourd'hui</p>
+          <div class="histo__barres">
+            <i style="--h:.25"></i><i style="--h:.42"></i><i style="--h:.7"></i><i style="--h:.55"></i><i style="--h:.38"></i><i style="--h:.62"></i><i style="--h:1" class="pic"></i><i style="--h:.8"></i><i style="--h:.48"></i><i style="--h:.3"></i>
+          </div>
+          <div class="histo__heures"><span>8 h</span><span>13 h</span><span>18 h</span></div>
+        </div>
+      </article>
+
+      <article class="carte carte--roles" data-reveal data-tilt-carte>
+        <div class="carte__tete"><span class="tag" data-famille="JRN">JRN</span><h3>Chacun son rôle</h3></div>
+        <p>Chaque vendeur a son PIN. Seul le patron voit les prix d'achat et les marges, et tout geste sensible reste au journal.</p>
+        <div class="roles" data-roles>
+          <div class="roles__choix" role="group" aria-label="Voir l'app comme">
+            <button type="button" class="on" data-role="patron" aria-pressed="true">Patron</button>
+            <button type="button" data-role="vendeur" aria-pressed="false">Vendeur</button>
+          </div>
+          <div class="roles__fiche">
+            <div><small>Prix de vente</small><b>4 600 FCFA</b></div>
+            <div class="secret"><small>Prix d'achat</small><b>4 100 FCFA</b><span class="cadenas"><svg class="ico" viewBox="0 0 24 24"><use href="#i-lock"/></svg></span></div>
+            <div class="secret"><small>Marge</small><b>+12 %</b><span class="cadenas"><svg class="ico" viewBox="0 0 24 24"><use href="#i-lock"/></svg></span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="carte carte--scan" data-reveal data-tilt-carte>
+        <div class="carte__tete"><span class="tag" data-famille="SCN">SCN</span><h3>Scan et impression</h3></div>
+        <p>Code-barres par la caméra ou la douchette. Ticket sur imprimante Bluetooth 58 ou 80 mm, ou en A4.</p>
+        <div class="scan" data-anim="scan">
+          <div class="codebarre"><i></i><span class="laser"></span></div>
+          <div class="imprimante"><div class="imprimante__fente"></div><div class="imprimante__papier"><i></i><i></i><i></i><b>Jërëjëf !</b></div></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ Démo jouable ═════════ -->
+<section class="demo" id="demo">
+  <div class="demo__frise" aria-hidden="true"><svg width="100%" height="28"><rect width="100%" height="28" fill="url(#frise)"/></svg></div>
+  <div class="conteneur">
+    <div class="demo__tete">
+      <p class="surtitre surtitre--encre" data-reveal>Démo jouable</p>
+      <h2 class="titre-section titre-section--encre" data-split>Essayez, c'est vous le vendeur.</h2>
+      <p class="texte-section texte-section--encre" data-reveal>Touchez les articles, choisissez le paiement, encaissez. C'est l'écran du comptoir de Kisma, en vrai.</p>
+    </div>
+
+    <div class="comptoir" data-demo data-reveal>
+      <div class="comptoir__articles">
+        <div class="comptoir__recherche"><span class="loupe"></span>Article, référence ou code-barres</div>
+        <div class="tuiles" data-tuiles></div>
+        <p class="comptoir__astuce"><svg class="ico" viewBox="0 0 24 24"><use href="#i-box"/></svg><span><b>Le stock suit chaque geste.</b> Les pastilles descendent à chaque article ajouté : videz les pointes pour voir Kisma vous prévenir.</span></p>
+      </div>
+
+      <aside class="panier" aria-label="Panier">
+        <div class="panier__tete">
+          <div><p class="panier__titre">Panier</p><p class="panier__sous">Paiement comptant</p></div>
+          <span class="panier__nb" data-panier-nb>0 ligne</span>
+        </div>
+        <ul class="panier__lignes" data-panier-lignes></ul>
+        <p class="panier__vide" data-panier-vide>Touchez un article pour l'ajouter.<span class="fleche-main" aria-hidden="true">← essayez !</span></p>
+        <div class="panier__pied">
+          <div class="panier__encoches" aria-hidden="true"></div>
+          <div class="panier__total"><span>Total</span><b aria-live="polite"><span data-panier-total>0</span> FCFA</b></div>
+          <div class="panier__modes" role="radiogroup" aria-label="Mode de paiement" data-modes>
+            <button type="button" role="radio" aria-checked="true" class="on" data-mode="Espèces">Espèces</button>
+            <button type="button" role="radio" aria-checked="false" data-mode="Wave">Wave</button>
+            <button type="button" role="radio" aria-checked="false" data-mode="Orange Money">Orange Money</button>
+          </div>
+          <button type="button" class="encaisser" data-encaisser-demo disabled>
+            <svg class="ico" viewBox="0 0 24 24"><use href="#i-wallet"/></svg>
+            <span data-encaisser-texte>Encaisser</span>
+          </button>
+        </div>
+        <div class="ticket" data-ticket aria-live="polite">
+          <div class="ticket__papier">
+            <p class="ticket__boutique">Quincaillerie de démo</p>
+            <p class="ticket__num" data-ticket-num>TIC-2026-A-00012</p>
+            <ul data-ticket-lignes></ul>
+            <p class="ticket__total"><span>Total</span><b data-ticket-total>0 FCFA</b></p>
+            <p class="ticket__mode" data-ticket-mode>Espèces</p>
+            <p class="ticket__merci">Jërëjëf, ba beneen yoon !</p>
+          </div>
+          <button type="button" class="bouton bouton--encre bouton--petit" data-nouvelle-vente>Nouvelle vente</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <div class="confettis" data-confettis aria-hidden="true"></div>
+</section>
+
+<!-- ═════════ Hors ligne ═════════ -->
+<section class="horsligne" id="hors-ligne" data-horsligne>
+  <div class="horsligne__etoiles" aria-hidden="true"></div>
+  <div class="conteneur horsligne__grille">
+    <div>
+      <p class="surtitre surtitre--safran" data-reveal>Hors ligne</p>
+      <h2 class="titre-section" data-split>Internet coupé ? Vous vendez quand même.</h2>
+      <p class="texte-section" data-reveal>L'appareil désigné de la boutique continue d'encaisser. Chaque vente garde son numéro et part toute seule au retour du réseau : rien ne se perd, rien ne se double.</p>
+
+      <div class="interrupteur" data-reveal>
+        <button type="button" role="switch" aria-checked="true" data-reseau>
+          <span class="interrupteur__rail"><span class="interrupteur__bouton"></span></span>
+          <span class="interrupteur__texte" data-reseau-texte>Internet allumé</span>
+        </button>
+        <span class="main-ecrite" aria-hidden="true">← coupez pour voir</span>
+      </div>
+    </div>
+
+    <div class="synchro" data-reveal>
+      <div class="synchro__nuage" data-nuage>
+        <svg class="ico ico--nuage" viewBox="0 0 24 24"><use href="#i-cloud" data-nuage-ico/></svg>
+        <span class="ondes"><i></i><i></i><i></i></span>
+      </div>
+      <div class="synchro__appareil">
+        <div class="synchro__tete">
+          <span><b>Ventes du jour</b><small data-synchro-etat>Tout est à jour</small></span>
+          <span class="synchro__compteur" data-synchro-compteur>0 en attente</span>
+        </div>
+        <ul class="synchro__liste" data-synchro-liste></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ Pensée pour le Sénégal ═════════ -->
+<section class="senegal">
+  <div class="conteneur">
+    <p class="surtitre surtitre--vif" data-reveal>Pensée ici, pour ici</p>
+    <h2 class="titre-section titre-section--encre" data-split>Faite pour le Sénégal, au franc CFA près.</h2>
+    <div class="chiffres">
+      <div class="chiffre" data-reveal><b><span data-compte="30">30</span></b><span class="chiffre__unite">jours</span><p>d'essai gratuit, sans moyen de paiement</p></div>
+      <div class="chiffre" data-reveal><b><span data-compte="0">0</span></b><span class="chiffre__unite">FCFA</span><p>pour la mise en service : un agent installe et forme l'équipe</p></div>
+      <div class="chiffre" data-reveal><b><span data-compte="3">3</span></b><span class="chiffre__unite">écrans</span><p>Android, iPhone et Windows, la même boutique partout</p></div>
+      <div class="chiffre" data-reveal><b><span data-compte="10">10</span></b><span class="chiffre__unite">ans</span><p>de conservation de vos données, avec un export toujours possible</p></div>
+    </div>
+    <ul class="pastilles-senegal" data-reveal>
+      <li>Prix en FCFA</li><li>Imprimante Bluetooth 58 ou 80 mm</li><li>Numérotation continue des factures</li><li>Facture validée non modifiable</li><li>TVA réglable</li><li>Montants en lettres</li><li>Partage WhatsApp</li><li>Petit Android, peu de data</li><li>Données sauvegardées chaque jour</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═════════ Comment ça marche ═════════ -->
+<section class="etapes" id="comment" data-etapes>
+  <div class="conteneur">
+    <p class="surtitre surtitre--vif" data-reveal>Comment ça marche</p>
+    <h2 class="titre-section titre-section--encre" data-split>Trois étapes, et le cahier part à la retraite.</h2>
+    <div class="etapes__piste">
+      <svg class="etapes__chemin" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><path d="M40 60 C 220 -10, 330 130, 500 60 S 800 -10, 960 60" pathLength="1" data-chemin/></svg>
+      <svg class="etapes__ecrou" viewBox="0 0 100 100" aria-hidden="true" data-ecrou-roule><use href="#ecrou"/></svg>
+      <ol class="etapes__liste">
+        <li class="etape" data-reveal><span class="etape__num">1</span><h3>Écrivez-nous</h3><p>Un message WhatsApp suffit. On cale un passage à la boutique.</p></li>
+        <li class="etape" data-reveal><span class="etape__num">2</span><h3>Un agent installe</h3><p>Il reprend vos articles et votre stock, crée les comptes et forme l'équipe. Gratuit.</p></li>
+        <li class="etape" data-reveal><span class="etape__num">3</span><h3>Vous vendez</h3><p>Dès le premier jour. Trente jours pour essayer, sans rien payer.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ Tarifs ═════════ -->
+<section class="tarifs" id="tarifs">
+  <div class="conteneur">
+    <p class="surtitre surtitre--safran" data-reveal>Tarifs</p>
+    <h2 class="titre-section" data-split>Un prix rond, payable en un Wave.</h2>
+    <p class="texte-section" data-reveal>Toutes les formules ont toutes les fonctions. Vous payez la taille de votre boutique, jamais des options.</p>
+
+    <div class="duree" role="radiogroup" aria-label="Durée" data-duree data-reveal>
+      <button type="button" role="radio" aria-checked="true" class="on" data-periode="mois">Au mois</button>
+      <button type="button" role="radio" aria-checked="false" data-periode="an">À l'année <em>2 mois offerts</em></button>
+      <span class="duree__curseur" aria-hidden="true"></span>
+    </div>
+
+    <div class="formules">
+      <article class="formule" data-reveal data-tilt-carte>
+        <h3>Solo</h3>
+        <p class="formule__pour">Le patron seul au comptoir</p>
+        <p class="formule__prix"><b data-prix="5000">5 000</b><span>FCFA <span data-par>/ mois</span></span></p>
+        <p class="formule__jour" data-jour="5000">soit environ 167 FCFA par jour</p>
+        <ul><li>1 utilisateur</li><li>1 appareil</li><li>Toutes les fonctions</li><li>Aide sur WhatsApp</li></ul>
+        <a class="bouton bouton--fantome" href="#telecharger" data-essai>Choisir Solo</a>
+      </article>
+      <article class="formule formule--vedette" data-reveal data-tilt-carte>
+        <span class="formule__ruban">Essai gratuit de 30 jours</span>
+        <h3>Boutique</h3>
+        <p class="formule__pour">Le patron et ses vendeurs</p>
+        <p class="formule__prix"><b data-prix="10000">10 000</b><span>FCFA <span data-par>/ mois</span></span></p>
+        <p class="formule__jour" data-jour="10000">soit environ 333 FCFA par jour</p>
+        <ul><li>4 utilisateurs</li><li>3 appareils</li><li>Toutes les fonctions</li><li>Aide sur WhatsApp</li></ul>
+        <a class="bouton bouton--safran" href="#telecharger" data-essai data-magnet>Essayer 30 jours</a>
+      </article>
+      <article class="formule" data-reveal data-tilt-carte>
+        <h3>Grande boutique</h3>
+        <p class="formule__pour">Plusieurs comptoirs, un magasinier</p>
+        <p class="formule__prix"><b data-prix="20000">20 000</b><span>FCFA <span data-par>/ mois</span></span></p>
+        <p class="formule__jour" data-jour="20000">soit environ 667 FCFA par jour</p>
+        <ul><li>10 utilisateurs</li><li>6 appareils</li><li>Toutes les fonctions</li><li>Aide WhatsApp prioritaire</li></ul>
+        <a class="bouton bouton--fantome" href="#telecharger" data-essai>Choisir Grande boutique</a>
+      </article>
+    </div>
+    <p class="tarifs__note" data-reveal>Prix TTC. Paiement par Wave ou Orange Money, depuis n'importe quel numéro. Parrainez une boutique : un mois offert à chacun.</p>
+  </div>
+</section>
+
+<!-- ═════════ Télécharger ═════════ -->
+<section class="telecharger" id="telecharger">
+  <div class="conteneur">
+    <div class="panneau" data-reveal>
+      <div class="panneau__orn" aria-hidden="true">
+        <svg class="orn-fixe" style="--x:6%;--y:14%;--s:44px;--c:#1B2060"><use href="#etoile"/></svg>
+        <svg class="orn-fixe" style="--x:90%;--y:78%;--s:64px;--c:#E03E3E"><use href="#soleil"/></svg>
+        <svg class="orn-fixe tourne" style="--x:48%;--y:88%;--s:36px;--c:#1B2060"><use href="#ecrou"/></svg>
+      </div>
+      <div class="panneau__texte">
+        <h2 class="titre-section titre-section--encre" data-split>Kisma arrive dans votre poche.</h2>
+        <p class="texte-section texte-section--encre">Sur Android, iPhone et Windows. En attendant la sortie, un agent vous l'installe et vous l'essayez trente jours, gratuitement.</p>
+        <div class="stores">
+          <a class="store" data-store="android" href="#telecharger"><svg class="ico" viewBox="0 0 24 24"><use href="#i-phone"/></svg><span><small data-store-etat>Bientôt sur</small><b>Google Play</b></span></a>
+          <a class="store" data-store="ios" href="#telecharger"><svg class="ico" viewBox="0 0 24 24"><use href="#i-phone"/></svg><span><small data-store-etat>Bientôt sur</small><b>App Store</b></span></a>
+          <a class="store" data-store="windows" href="#telecharger"><svg class="ico" viewBox="0 0 24 24"><use href="#i-monitor"/></svg><span><small data-store-etat>Bientôt sur</small><b>Windows</b></span></a>
+        </div>
+        <a class="bouton bouton--encre bouton--grand" href="#telecharger" data-essai data-magnet>
+          <svg class="ico" viewBox="0 0 24 24"><use href="#i-chat"/></svg>
+          Essayer 30 jours gratuits
+        </a>
+      </div>
+      <div class="panneau__icone" aria-hidden="true" data-parallax="-0.06">
+        <div class="grande-icone">
+          <svg viewBox="0 0 100 100" style="--k:#F4F5FF"><use href="#k-symbole"/></svg>
+        </div>
+        <p class="grande-icone__nom">Kisma</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ Installer sur Windows (étape 5b.7) ═════════ -->
+<section class="installer" id="installer">
+  <div class="conteneur">
+    <p class="surtitre surtitre--vif" data-reveal>Version de test pour Windows</p>
+    <h2 class="titre-section titre-section--encre" data-split>Installer Kisma sur votre PC.</h2>
+    <p class="texte-section texte-section--encre" data-reveal>Kisma n'a pas encore de signature Microsoft pendant le test : Windows affiche donc un avertissement bleu au premier lancement. Ne continuez que si vous avez téléchargé le fichier depuis cette page.</p>
+    <div class="installer__grille">
+      <ol class="installer__etapes">
+        <li data-reveal><span class="etape__num">1</span><p>Ouvrez le fichier <b>Kisma-Setup.exe</b> que vous venez de télécharger.</p></li>
+        <li data-reveal><span class="etape__num">2</span><p>Si l'avertissement bleu s'affiche, cliquez sur <b>Informations complémentaires</b>.</p></li>
+        <li data-reveal><span class="etape__num">3</span><p>Cliquez sur <b>Exécuter quand même</b>, puis suivez l'installation.</p></li>
+        <li data-reveal><span class="etape__num">4</span><p>Ouvrez Kisma et inscrivez votre boutique. Votre code de vérification vous arrive par WhatsApp.</p></li>
+      </ol>
+      <figure class="installer__schema" data-reveal>
+        <div class="smartscreen" aria-hidden="true">
+          <p class="smartscreen__titre">Windows a protégé votre ordinateur</p>
+          <p>Microsoft Defender SmartScreen a empêché le démarrage d'une application non reconnue.</p>
+          <p><span class="smartscreen__marque">Informations complémentaires</span></p>
+          <div class="smartscreen__pied"><span class="smartscreen__marque">Exécuter quand même</span><span>Ne pas exécuter</span></div>
+        </div>
+        <figcaption>Schéma de l'avertissement : les deux choix à faire sont encadrés en safran.</figcaption>
+      </figure>
+    </div>
+    <div class="installer__config" data-reveal>
+      <h3>Configuration requise</h3>
+      <ul>
+        <li>Un PC sous Windows 10 ou 11, 64 bits.</li>
+        <li>Internet pour l'inscription et la synchronisation.</li>
+        <li>Pas besoin d'être administrateur du PC.</li>
+      </ul>
+      <p class="installer__version" data-version>Version de test 0.1.0.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ Questions ═════════ -->
+<section class="questions" id="questions">
+  <div class="conteneur conteneur--etroit">
+    <p class="surtitre surtitre--safran" data-reveal>Questions fréquentes</p>
+    <h2 class="titre-section" data-split>Vous vous demandez sûrement…</h2>
+    <div class="faq" data-faq>
+      <details data-reveal>
+        <summary>Faut-il Internet pour vendre ?<svg class="ico" viewBox="0 0 24 24"><use href="#i-plus"/></svg></summary>
+        <div class="faq__reponse"><p>Non. L'appareil désigné de la boutique continue d'encaisser les ventes comptant sans réseau, et tout part au retour de la connexion. Les ventes à crédit et le travail à plusieurs appareils attendent le réseau.</p></div>
+      </details>
+      <details data-reveal>
+        <summary>De quel matériel ai-je besoin ?<svg class="ico" viewBox="0 0 24 24"><use href="#i-plus"/></svg></summary>
+        <div class="faq__reponse"><p>Un téléphone Android, même d'entrée de gamme, un iPhone ou un ordinateur Windows. Pour les tickets, une imprimante thermique Bluetooth de 58 ou 80 mm, ou une imprimante A4. Une douchette code-barres est la bienvenue, la caméra du téléphone suffit aussi.</p></div>
+      </details>
+      <details data-reveal>
+        <summary>Mes vendeurs voient-ils mes prix d'achat ?<svg class="ico" viewBox="0 0 24 24"><use href="#i-plus"/></svg></summary>
+        <div class="faq__reponse"><p>Non. Seul le patron voit les prix d'achat et les marges. Chaque vendeur entre avec son PIN, tient sa propre caisse, et les gestes sensibles (remise, annulation, retour) restent au journal.</p></div>
+      </details>
+      <details data-reveal>
+        <summary>Mes données sont-elles en sécurité ?<svg class="ico" viewBox="0 0 24 24"><use href="#i-plus"/></svg></summary>
+        <div class="faq__reponse"><p>Pendant le test, les informations de votre boutique, de vos employés et de vos clients sont gardées sur l'appareil et sur un serveur en Europe, et sauvegardées sous forme chiffrée. Elles servent uniquement à faire fonctionner Kisma pour votre boutique. En cas de panne, un rapport technique est envoyé au service Sentry, en Europe, et nous en retirons les informations sur vos clients. Le service est en test et peut s'interrompre. Pour toute question ou pour demander la suppression de vos données, écrivez-nous sur WhatsApp.</p></div>
+      </details>
+      <details data-reveal>
+        <summary>Les factures sont-elles conformes ?<svg class="ico" viewBox="0 0 24 24"><use href="#i-plus"/></svg></summary>
+        <div class="faq__reponse"><p>Oui : numérotation continue sans trou, facture validée qui ne se modifie plus (on corrige par un avoir), TVA réglable et montant écrit en lettres. Votre comptable reçoit ses exports tout prêts.</p></div>
+      </details>
+      <details data-reveal>
+        <summary>Et si je paie en retard ?<svg class="ico" viewBox="0 0 24 24"><use href="#i-plus"/></svg></summary>
+        <div class="faq__reponse"><p>Vous gardez tout le service pendant 7 jours. Ensuite l'app passe en lecture seule : vous consultez, exportez et encaissez encore les dettes de vos clients. Un paiement Wave ou Orange Money rouvre tout aussitôt, rien n'est effacé.</p></div>
+      </details>
+      <details data-reveal>
+        <summary>Combien coûte l'installation ?<svg class="ico" viewBox="0 0 24 24"><use href="#i-plus"/></svg></summary>
+        <div class="faq__reponse"><p>Rien. Un agent vient à la boutique, reprend vos articles et votre stock, crée les comptes de l'équipe et vous forme. Les trente jours d'essai démarrent ensuite.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pied">
+  <div class="pied__frise" aria-hidden="true"><svg width="100%" height="28"><rect width="100%" height="28" fill="url(#frise)"/></svg></div>
+  <div class="conteneur pied__grille">
+    <div>
+      <a class="nav__marque" href="#haut" aria-label="Kisma, retour en haut">
+        <svg class="marque__k" viewBox="0 0 100 100" aria-hidden="true" style="--k:#fff"><use href="#k-symbole"/></svg>
+        <span class="marque__nom">kisma</span>
+      </a>
+      <p class="pied__accroche">Votre quincaillerie, bien serrée.</p>
+    </div>
+    <nav class="pied__liens" aria-label="Pied de page">
+      <a href="#fonctions">Fonctions</a>
+      <a href="#demo">Démo</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#questions">Questions</a>
+      <a href="#telecharger" data-essai>Nous écrire</a>
+    </nav>
+    <p class="pied__merci"><span class="main-ecrite">Jërëjëf !</span> © 2026 Kisma. Pensée pour les quincailleries du Sénégal.</p>
+  </div>
+  <p class="pied__geant" aria-hidden="true">kisma</p>
+</footer>
+
+<script src="reglages.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
