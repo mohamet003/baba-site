@@ -781,3 +781,7 @@ html.js .vue .histo__barres i { transform: scaleY(1); }
   .installer { padding: 72px 0 88px; }
   .installer__grille { grid-template-columns: minmax(0, 1fr); gap: 40px; }
 }
+
+/* Choix du palier, sous la durée (abonnements R2). */
+.duree--paliers { display: flex; width: fit-content; margin: 12px auto 0; }
+@media (max-width: 560px) { .duree--paliers button em { display: none; } }

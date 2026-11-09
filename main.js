@@ -785,7 +785,15 @@
   placerCurseur();
   addEventListener('resize', placerCurseur);
   if (document.fonts) document.fonts.ready.then(placerCurseur);
+  // Le palier choisi (2, 5 ou 10 utilisateurs) fixe le prix mensuel de chaque niveau.
+  let palier = 0;
+  let periodeCourante = 'mois';
+  const prixDuPalier = (el) => Number((el.dataset.parPalier || '').split(',')[palier] || el.dataset.prix || el.dataset.jour);
   const afficherPrix = (periode, animer) => {
+    periodeCourante = periode;
+    $$('[data-par-palier]').forEach((el) => {
+      if ('prix' in el.dataset) el.dataset.prix = prixDuPalier(el); else el.dataset.jour = prixDuPalier(el);
+    });
     $$('[data-prix]').forEach((b) => {
       const mensuel = Number(b.dataset.prix);
       const avant = Number(b.dataset.affiche || mensuel);
@@ -806,6 +814,24 @@
     placerCurseur();
     afficherPrix(b.dataset.periode, true);
   }));
+  const paliers = $('[data-paliers]');
+  if (paliers) {
+    const curseurPalier = $('.duree__curseur', paliers);
+    const placerPalier = () => {
+      const on = $('button.on', paliers);
+      curseurPalier.style.setProperty('--cg', `${on.offsetLeft}px`);
+      curseurPalier.style.setProperty('--cl', `${on.offsetWidth}px`);
+    };
+    placerPalier();
+    addEventListener('resize', placerPalier);
+    if (document.fonts) document.fonts.ready.then(placerPalier);
+    $$('[data-palier]', paliers).forEach((b) => b.addEventListener('click', () => {
+      $$('[data-palier]', paliers).forEach((x) => { const on = x === b; x.classList.toggle('on', on); x.setAttribute('aria-checked', String(on)); });
+      palier = Number(b.dataset.palier);
+      placerPalier();
+      afficherPrix(periodeCourante, true);
+    }));
+  }
 
   /* ── Questions : ouverture en douceur, une à la fois ── */
   $$('[data-faq] details').forEach((d) => {

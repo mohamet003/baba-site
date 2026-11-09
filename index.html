@@ -494,39 +494,45 @@
   <div class="conteneur">
     <p class="surtitre surtitre--safran" data-reveal>Tarifs</p>
     <h2 class="titre-section" data-split>Un prix rond, payable en un Wave.</h2>
-    <p class="texte-section" data-reveal>Toutes les formules ont toutes les fonctions. Vous payez la taille de votre boutique, jamais des options.</p>
+    <p class="texte-section" data-reveal>Le minimum pour tenir la boutique est dans toutes les formules. Choisissez le niveau de fonctions et le nombre d'utilisateurs.</p>
 
     <div class="duree" role="radiogroup" aria-label="Durée" data-duree data-reveal>
       <button type="button" role="radio" aria-checked="true" class="on" data-periode="mois">Au mois</button>
       <button type="button" role="radio" aria-checked="false" data-periode="an">À l'année <em>2 mois offerts</em></button>
       <span class="duree__curseur" aria-hidden="true"></span>
     </div>
+    <div class="duree duree--paliers" role="radiogroup" aria-label="Utilisateurs" data-paliers data-reveal>
+      <button type="button" role="radio" aria-checked="true" class="on" data-palier="0">Jusqu'à 2 utilisateurs <em>2 appareils</em></button>
+      <button type="button" role="radio" aria-checked="false" data-palier="1">Jusqu'à 5 <em>3 appareils</em></button>
+      <button type="button" role="radio" aria-checked="false" data-palier="2">Jusqu'à 10 <em>6 appareils</em></button>
+      <span class="duree__curseur" aria-hidden="true"></span>
+    </div>
 
     <div class="formules">
       <article class="formule" data-reveal data-tilt-carte>
-        <h3>Solo</h3>
-        <p class="formule__pour">Le patron seul au comptoir</p>
-        <p class="formule__prix"><b data-prix="5000">5 000</b><span>FCFA <span data-par>/ mois</span></span></p>
-        <p class="formule__jour" data-jour="5000">soit environ 167 FCFA par jour</p>
-        <ul><li>1 utilisateur</li><li>1 appareil</li><li>Toutes les fonctions</li><li>Aide sur WhatsApp</li></ul>
-        <a class="bouton bouton--fantome" href="#telecharger" data-essai>Choisir Solo</a>
+        <h3>Essentiel</h3>
+        <p class="formule__pour">Tout pour tenir la boutique</p>
+        <p class="formule__prix"><b data-prix="15000" data-par-palier="15000,20000,25000">15 000</b><span>FCFA <span data-par>/ mois</span></span></p>
+        <p class="formule__jour" data-jour="15000" data-par-palier="15000,20000,25000">soit environ 500 FCFA par jour</p>
+        <ul><li>Ventes, devis, factures, BL</li><li>Stock, inventaires, achats</li><li>Clients, crédits, caisse</li><li>Partage sur WhatsApp</li><li>Tableau de bord du jour</li></ul>
+        <a class="bouton bouton--fantome" href="#telecharger" data-essai>Choisir Essentiel</a>
       </article>
       <article class="formule formule--vedette" data-reveal data-tilt-carte>
         <span class="formule__ruban">Essai gratuit de 30 jours</span>
-        <h3>Boutique</h3>
-        <p class="formule__pour">Le patron et ses vendeurs</p>
-        <p class="formule__prix"><b data-prix="10000">10 000</b><span>FCFA <span data-par>/ mois</span></span></p>
-        <p class="formule__jour" data-jour="10000">soit environ 333 FCFA par jour</p>
-        <ul><li>4 utilisateurs</li><li>3 appareils</li><li>Toutes les fonctions</li><li>Aide sur WhatsApp</li></ul>
+        <h3>Pro</h3>
+        <p class="formule__pour">Pour piloter et encaisser plus vite</p>
+        <p class="formule__prix"><b data-prix="25000" data-par-palier="25000,30000,35000">25 000</b><span>FCFA <span data-par>/ mois</span></span></p>
+        <p class="formule__jour" data-jour="25000" data-par-palier="25000,30000,35000">soit environ 833 FCFA par jour</p>
+        <ul><li>Tout l'Essentiel</li><li>Wave intégré à la caisse</li><li>Analyses : semaine, mois, marges</li><li>Exports pour le comptable</li><li>Suggestions de commande</li></ul>
         <a class="bouton bouton--safran" href="#telecharger" data-essai data-magnet>Essayer 30 jours</a>
       </article>
       <article class="formule" data-reveal data-tilt-carte>
-        <h3>Grande boutique</h3>
-        <p class="formule__pour">Plusieurs comptoirs, un magasinier</p>
-        <p class="formule__prix"><b data-prix="20000">20 000</b><span>FCFA <span data-par>/ mois</span></span></p>
-        <p class="formule__jour" data-jour="20000">soit environ 667 FCFA par jour</p>
-        <ul><li>10 utilisateurs</li><li>6 appareils</li><li>Toutes les fonctions</li><li>Aide WhatsApp prioritaire</li></ul>
-        <a class="bouton bouton--fantome" href="#telecharger" data-essai>Choisir Grande boutique</a>
+        <h3>Premium</h3>
+        <p class="formule__pour">Tout, et WhatsApp qui part tout seul</p>
+        <p class="formule__prix"><b data-prix="35000" data-par-palier="35000,40000,45000">35 000</b><span>FCFA <span data-par>/ mois</span></span></p>
+        <p class="formule__jour" data-jour="35000" data-par-palier="35000,40000,45000">soit environ 1 167 FCFA par jour</p>
+        <ul><li>Tout le Pro</li><li>WhatsApp automatique (500 messages par mois)</li><li>Les fonctions d'IA à venir</li><li>Aide WhatsApp prioritaire</li></ul>
+        <a class="bouton bouton--fantome" href="#telecharger" data-essai>Choisir Premium</a>
       </article>
     </div>
     <p class="tarifs__note" data-reveal>Prix TTC. Paiement par Wave ou Orange Money, depuis n'importe quel numéro. Parrainez une boutique : un mois offert à chacun.</p>
@@ -595,7 +601,7 @@
         <li>Internet pour l'inscription et la synchronisation.</li>
         <li>Pas besoin d'être administrateur du PC.</li>
       </ul>
-      <p class="installer__version" data-version>Version de test 0.1.5.</p>
+      <p class="installer__version" data-version>Version de test 0.2.0.</p>
     </div>
   </div>
 </section>
