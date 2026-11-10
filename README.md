@@ -20,4 +20,6 @@ Puis http://localhost:4173. Ajoutez `?sans-intro` pour sauter l'intro ; elle est
 
 ## Mettre en ligne
 
+La page est servie par GitHub Pages sur `kisma-apps.com` ; le fichier `CNAME` porte ce domaine et doit rester dans ce dossier, sinon une publication efface le réglage.
+
 Copiez le dossier tel quel sur n'importe quel serveur de fichiers. Seule la police vient de Google Fonts.
