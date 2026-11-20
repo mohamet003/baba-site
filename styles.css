@@ -282,43 +282,6 @@ html.js .vue .bulle--credit { transition-delay: 1.9s; }
 .intro__nom span { display: inline-block; opacity: 0; transform: translateY(40%); }
 .intro__passer { position: absolute; bottom: 28px; right: 28px; padding: 8px 14px; border-radius: 10px; border: 0; background: rgba(255, 255, 255, .08); color: var(--brume); font-size: 13px; }
 
-/* ── Bandes peintes ─────────────────────────────────── */
-.bandes { position: relative; height: clamp(150px, 18vw, 230px); overflow: hidden; background: var(--nuit); margin-top: -1px; }
-.bande { position: absolute; left: -5%; width: 110%; padding: 14px 0; overflow: hidden; }
-.bande--safran { top: 18%; background: var(--safran); color: var(--indigo); transform: rotate(-3deg); z-index: 2; box-shadow: 0 20px 40px -20px rgba(0, 0, 0, .6); }
-.bande--vif { top: 42%; background: var(--vif); color: var(--blanc); transform: rotate(2.4deg); }
-.bande__piste { display: flex; align-items: center; gap: 28px; width: max-content; font-size: clamp(26px, 4.4vw, 52px); font-weight: 800; letter-spacing: -.02em; text-transform: uppercase; white-space: nowrap; will-change: transform; }
-.bande__piste i { font-style: normal; font-size: .6em; opacity: .7; }
-
-/* ── Le cahier, c'est fini ──────────────────────────── */
-.cahier { position: relative; background: var(--chaux); color: var(--encre); }
-.cahier__colle { padding: 120px 0; }
-html.js .cahier.collant { height: 280vh; }
-html.js .cahier.collant .cahier__colle { position: sticky; top: 0; min-height: 100vh; display: flex; align-items: center; padding: 90px 0 40px; }
-.cahier__grille { display: grid; gap: 48px; }
-.cahier .titre-section { color: var(--encre); }
-.cahier .texte-section { color: var(--encre-douce); }
-.cahier .surtitre { color: var(--rupture); }
-.cahier__duo { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-.page { position: relative; padding: 34px 30px 40px 72px; min-height: 360px; border-radius: 6px 18px 18px 6px; background: #FFFEF8 repeating-linear-gradient(transparent 0 37px, #C9D6EE 37px 38px); background-position: 0 70px; font-family: var(--main); color: #2B3A8C; box-shadow: 0 1px 0 #ddd, 0 30px 60px -30px rgba(19, 22, 58, .45), -8px 0 0 -2px #E8E2D0;
-  transform: rotate(calc(-3deg + var(--pr, 0) * 3deg)) scale(calc(1 - var(--pr, 0) * .04)); transition: transform 200ms linear; }
-.page__marge { position: absolute; left: 52px; top: 0; bottom: 0; width: 2px; background: #F28B8B; }
-.page__tache { position: absolute; right: 26px; bottom: 30px; width: 90px; height: 90px; border-radius: 50%; border: 7px solid rgba(143, 92, 42, .18); border-left-color: rgba(143, 92, 42, .08); transform: rotate(30deg); }
-.page__date { font-size: 22px; color: #9AA3C7; margin-bottom: 10px; }
-.note { position: relative; font-size: clamp(22px, 2.3vw, 28px); line-height: 38px; font-weight: 600; width: fit-content; transition: color 400ms; }
-.note em { font-style: normal; color: #C0392B; }
-/* Le trait suit chaque ligne quand la note passe à la ligne (téléphone). */
-.note > span { background: linear-gradient(var(--rupture), var(--rupture)) no-repeat 0 60% / 0% 3px; -webkit-box-decoration-break: clone; box-decoration-break: clone; transition: background-size 600ms var(--sortie); }
-.note.raye { color: #9AA3C7; }
-.note.raye > span { background-size: 100% 3px; }
-.note--rature s { color: #9AA3C7; }
-.solutions { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
-.solution { display: flex; gap: 16px; align-items: flex-start; padding: 20px; border-radius: 20px; background: var(--blanc); box-shadow: 0 1px 0 var(--chaux-2), 0 20px 40px -28px rgba(19, 22, 58, .35); transition: opacity 600ms var(--sortie), transform 700ms var(--ressort); }
-html.js .cahier.collant .solution { opacity: .22; transform: translateX(30px) scale(.97); filter: saturate(0); }
-html.js .cahier.collant .solution.vue { opacity: 1; transform: none; filter: none; }
-.solution h3 { font-size: 18px; font-weight: 800; letter-spacing: -.02em; }
-.solution p { margin-top: 4px; color: var(--encre-douce); font-size: 15px; line-height: 1.5; }
-
 /* ── Fonctions phares (bento) ───────────────────────── */
 .fonctions { padding: 140px 0 120px; background: radial-gradient(70% 50% at 20% 0%, rgba(52, 66, 217, .22), transparent 70%), var(--nuit); }
 .fonctions .titre-section { max-width: 18ch; }
@@ -425,15 +388,6 @@ html.js .vue .histo__barres i { transform: scaleY(1); }
 .codebarre i { display: block; height: 100%; background: repeating-linear-gradient(90deg, var(--encre) 0 2px, transparent 2px 4px, var(--encre) 4px 7px, transparent 7px 9px, var(--encre) 9px 10px, transparent 10px 13px); }
 .laser { position: absolute; left: 8px; right: 8px; top: 50%; height: 2px; background: #FF3B4E; box-shadow: 0 0 12px 2px rgba(255, 59, 78, .8); animation: laser 2.2s ease-in-out infinite; }
 @keyframes laser { 0%, 100% { transform: translateY(-36px); } 50% { transform: translateY(36px); } }
-.imprimante { position: relative; height: 104px; }
-.imprimante__fente { position: absolute; left: 0; right: 0; top: 0; height: 30px; border-radius: 12px; background: linear-gradient(#3a3f6e, #262a52); box-shadow: inset 0 -4px 0 #10132b; z-index: 2; }
-.imprimante__papier { position: absolute; left: 14%; right: 14%; top: 18px; padding: 18px 10px 8px; background: var(--blanc); color: var(--encre); border-radius: 0 0 4px 4px; display: flex; flex-direction: column; gap: 6px; transform-origin: top; animation: imprime 3.2s var(--sortie) infinite;
-  -webkit-mask: linear-gradient(#000 0 0) top / 100% calc(100% - 6px) no-repeat, conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / 10px 6px repeat-x;
-          mask: linear-gradient(#000 0 0) top / 100% calc(100% - 6px) no-repeat, conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / 10px 6px repeat-x; }
-.imprimante__papier i { height: 4px; border-radius: 3px; background: #CDD0E4; }
-.imprimante__papier i:nth-child(2) { width: 70%; }
-.imprimante__papier b { font-family: var(--main); font-size: 18px; text-align: center; color: var(--vif); }
-@keyframes imprime { 0% { clip-path: inset(0 0 100% 0); } 45%, 85% { clip-path: inset(0 0 0 0); } 100% { clip-path: inset(0 0 0 0); opacity: 0; } }
 
 /* ── Démo jouable ───────────────────────────────────── */
 .demo { position: relative; padding: 0 0 120px; background: var(--safran); color: var(--encre); overflow: hidden; }
@@ -560,31 +514,8 @@ html.js .vue .histo__barres i { transform: scaleY(1); }
 .vente.envoi { animation: envoi 700ms var(--sortie); }
 @keyframes envoi { 40% { transform: translateY(-8px); background: var(--ok-fond); } }
 
-/* ── Sénégal ────────────────────────────────────────── */
-.senegal { padding: 140px 0 80px; background: var(--chaux); color: var(--encre); }
-.chiffres { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 56px; }
-.chiffre { position: relative; padding: 28px 24px; border-radius: 26px; background: var(--blanc); box-shadow: 0 1px 0 var(--chaux-2), 0 24px 50px -36px rgba(19, 22, 58, .45); overflow: hidden; }
-.chiffre::after { content: ""; position: absolute; right: -30px; top: -30px; width: 100px; height: 100px; border-radius: 50%; background: var(--tache, #E5E8FD); }
-.chiffre:nth-child(2) { --tache: #FFF0D2; } .chiffre:nth-child(3) { --tache: #DDF3E6; } .chiffre:nth-child(4) { --tache: #FDE4E7; }
-.chiffre b { position: relative; z-index: 1; display: inline-block; font-size: clamp(52px, 6vw, 84px); line-height: 1; font-weight: 800; letter-spacing: -.05em; color: var(--indigo); font-variant-numeric: tabular-nums; }
-.chiffre__unite { position: relative; z-index: 1; margin-left: 6px; font-weight: 800; font-size: 20px; color: var(--vif); }
-.chiffre p { margin-top: 12px; color: var(--encre-douce); font-size: 15px; line-height: 1.45; }
-.pastilles-senegal { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin: 32px 0 0; padding: 0; }
-.pastilles-senegal li { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 99px; background: var(--blanc); box-shadow: inset 0 0 0 1px var(--chaux-2); font-weight: 600; font-size: 14px; }
-.pastilles-senegal li::before { content: ""; width: 8px; height: 8px; border-radius: 2px; transform: rotate(45deg); background: var(--c, var(--vif)); }
-.pastilles-senegal li:nth-child(4n+2)::before { --c: #E03E3E; } .pastilles-senegal li:nth-child(4n+3)::before { --c: #1F9D57; } .pastilles-senegal li:nth-child(4n)::before { --c: #EA7A1C; }
-
-/* ── Étapes ─────────────────────────────────────────── */
-.etapes { padding: 60px 0 140px; background: var(--chaux); color: var(--encre); }
-.etapes__piste { position: relative; margin-top: 60px; }
-.etapes__chemin { position: absolute; left: 0; right: 0; top: 0; width: 100%; height: 120px; overflow: visible; }
-.etapes__chemin path { fill: none; stroke: var(--vif); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--trace, 1)); }
-.etapes__ecrou { position: absolute; left: 0; top: 0; width: 34px; height: 34px; margin: -17px 0 0 -17px; fill: var(--safran); filter: drop-shadow(0 6px 10px rgba(158, 86, 0, .35)); transform: translate(var(--ex, 40px), var(--ey, 60px)) rotate(var(--er, 0deg)); }
-.etapes__liste { position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.etape { padding: 110px 4px 0; }
+/* ── Pastille numérotée (étapes d'installation) ── */
 .etape__num { display: grid; place-items: center; width: 56px; height: 56px; margin-bottom: 18px; border-radius: 18px; background: var(--indigo); color: var(--safran); font-weight: 800; font-size: 24px; box-shadow: 0 14px 30px -12px rgba(27, 32, 96, .6); }
-.etape h3 { font-size: 24px; font-weight: 800; letter-spacing: -.03em; }
-.etape p { margin-top: 8px; color: var(--encre-douce); max-width: 30ch; }
 
 /* ── Tarifs ─────────────────────────────────────────── */
 .tarifs { padding: 140px 0; background: radial-gradient(60% 50% at 50% 0%, rgba(52, 66, 217, .25), transparent 70%), var(--nuit); text-align: center; }
@@ -673,28 +604,19 @@ html.js .vue .histo__barres i { transform: scaleY(1); }
   .carte--ventes { grid-column: span 2; grid-row: auto; }
   .comptoir { grid-template-columns: 1fr; }
   .tuiles { grid-template-columns: repeat(3, 1fr); }
-  .chiffres { grid-template-columns: repeat(2, 1fr); }
   .formules { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
 }
 
 @media (max-width: 860px) {
   .nav__liens, .nav__cta { display: none; }
   .nav__burger { display: grid; }
-  .cahier__duo, .horsligne__grille, .panneau { grid-template-columns: 1fr; }
-  .panneau__icone { order: -1; justify-items: start; }
-  .etapes__chemin, .etapes__ecrou { display: none; }
-  .etapes__liste { grid-template-columns: 1fr; gap: 12px; }
-  .etape { padding: 0; display: grid; grid-template-columns: 56px 1fr; column-gap: 18px; }
-  .etape__num { grid-row: span 2; margin: 0; }
+  .horsligne__grille, .panneau { grid-template-columns: 1fr; }
   .pied__grille { grid-template-columns: 1fr; }
 }
 
 /* ── Téléphone ──────────────────────────────────────── */
 @media (max-width: 600px) {
   .hero { padding-top: 104px; }
-  .page { padding: 26px 18px 30px 52px; min-height: 0; }
-  .page__marge { left: 38px; }
-  .note { font-size: 21px; line-height: 38px; }
   .hero__titre { font-size: clamp(42px, 12.5vw, 60px); }
   .hero__actions { flex-direction: column; width: 100%; }
   .hero__actions .bouton { width: 100%; }
@@ -715,7 +637,6 @@ html.js .vue .histo__barres i { transform: scaleY(1); }
   .roles__fiche { grid-template-columns: 1fr 1fr; }
   .roles__fiche > div:first-child { grid-column: span 2; }
   .scan { grid-template-columns: 1fr; }
-  .chiffres { grid-template-columns: 1fr; }
   .panneau { border-radius: 32px; }
   .stores { flex-direction: column; }
   .panneau .bouton { width: 100%; }
@@ -726,62 +647,90 @@ html.js .vue .histo__barres i { transform: scaleY(1); }
   *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; transition-delay: 0ms !important; scroll-behavior: auto !important; }
 }
 
-/* ── Installer sur Windows (étape 5b.7) : aide SmartScreen et configuration requise ── */
-.installer { padding: 100px 0 120px; background: var(--chaux); color: var(--encre); }
-.installer .texte-section { max-width: 44em; }
-.installer__grille { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start; margin-top: 48px; }
-.installer__etapes { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; }
-.installer__etapes li { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 18px; align-items: center; }
-.installer__etapes .etape__num { margin: 0; }
-.installer__etapes p { color: var(--encre-douce); }
-.installer__etapes b { color: var(--encre); font-weight: 800; }
-.installer__schema { margin: 0; }
-.installer__schema figcaption { margin-top: 12px; font-size: .875rem; color: var(--encre-douce); }
-.smartscreen { padding: 28px; border-radius: 6px; background: #0F6CBD; color: #FFFFFF; font-family: 'Segoe UI', system-ui, sans-serif; box-shadow: 0 24px 50px -18px rgba(19, 22, 58, .45); }
-.smartscreen__titre { font-size: 1.5rem; font-weight: 600; line-height: 1.25; }
-.smartscreen p + p { margin-top: 12px; font-size: .9375rem; line-height: 1.45; }
-.smartscreen__marque { display: inline-block; padding: 2px 6px; border: 2px solid var(--safran); border-radius: 4px; font-weight: 600; }
-.smartscreen__pied { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; margin-top: 24px; font-size: .875rem; }
-.smartscreen__pied span { padding: 6px 18px; background: rgba(255, 255, 255, .16); border: 2px solid rgba(255, 255, 255, .5); }
-.smartscreen__pied .smartscreen__marque { border-color: var(--safran); background: none; border-radius: 0; }
-.installer__config { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--chaux-2); }
-.installer__config h3 { font-size: 24px; font-weight: 800; letter-spacing: -.03em; }
-.installer__config ul { margin: 14px 0 0; padding-left: 20px; color: var(--encre-douce); }
-.installer__config li + li { margin-top: 6px; }
-.installer__version { margin-top: 16px; font-size: .9375rem; color: var(--encre-douce); }
-@media (max-width: 820px) {
-  .installer { padding: 72px 0 88px; }
-  .installer__grille { grid-template-columns: minmax(0, 1fr); gap: 40px; }
-}
-
-/* ── Installer sur Windows (étape 5b.7) : aide SmartScreen et configuration requise ── */
-.installer { padding: 100px 0 120px; background: var(--chaux); color: var(--encre); }
-.installer .texte-section { max-width: 44em; }
-.installer__grille { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start; margin-top: 48px; }
-.installer__etapes { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; }
-.installer__etapes li { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 18px; align-items: center; }
-.installer__etapes .etape__num { margin: 0; }
-.installer__etapes p { color: var(--encre-douce); }
-.installer__etapes b { color: var(--encre); font-weight: 800; }
-.installer__schema { margin: 0; }
-.installer__schema figcaption { margin-top: 12px; font-size: .875rem; color: var(--encre-douce); }
-.smartscreen { padding: 28px; border-radius: 6px; background: #0F6CBD; color: #FFFFFF; font-family: 'Segoe UI', system-ui, sans-serif; box-shadow: 0 24px 50px -18px rgba(19, 22, 58, .45); }
-.smartscreen__titre { font-size: 1.5rem; font-weight: 600; line-height: 1.25; }
-.smartscreen p + p { margin-top: 12px; font-size: .9375rem; line-height: 1.45; }
-.smartscreen__marque { display: inline-block; padding: 2px 6px; border: 2px solid var(--safran); border-radius: 4px; font-weight: 600; }
-.smartscreen__pied { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; margin-top: 24px; font-size: .875rem; }
-.smartscreen__pied span { padding: 6px 18px; background: rgba(255, 255, 255, .16); border: 2px solid rgba(255, 255, 255, .5); }
-.smartscreen__pied .smartscreen__marque { border-color: var(--safran); background: none; border-radius: 0; }
-.installer__config { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--chaux-2); }
-.installer__config h3 { font-size: 24px; font-weight: 800; letter-spacing: -.03em; }
-.installer__config ul { margin: 14px 0 0; padding-left: 20px; color: var(--encre-douce); }
-.installer__config li + li { margin-top: 6px; }
-.installer__version { margin-top: 16px; font-size: .9375rem; color: var(--encre-douce); }
-@media (max-width: 820px) {
-  .installer { padding: 72px 0 88px; }
-  .installer__grille { grid-template-columns: minmax(0, 1fr); gap: 40px; }
-}
-
 /* Choix du palier, sous la durée (abonnements R2). */
 .duree--paliers { display: flex; width: fit-content; margin: 12px auto 0; }
 @media (max-width: 560px) { .duree--paliers button em { display: none; } }
+
+/* ── Étape 15.1 : boutons selon l'appareil ─────────────
+   Sur un PC Windows, « Télécharger » ; ailleurs, « Essayer » (classe posée par main.js). */
+html:not(.sur-windows) .seul-windows, html.sur-windows .sauf-windows { display: none !important; }
+
+/* ── Fonctions : message du cahier ───────────────────── */
+.fonctions .texte-section { margin-top: 14px; }
+.glisser { display: none; }
+
+/* ── Kisma IA ───────────────────────────────────────── */
+.ia { padding: 120px 0; background: var(--chaux); color: var(--encre); }
+.ia__grille { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
+.ia__points { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 18px; }
+.ia__points li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 14px; align-items: start; }
+.ia__ico { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 14px; background: var(--indigo); color: var(--safran); }
+.ia__ico .ico { width: 22px; height: 22px; }
+.ia__points h3 { font-size: 17px; font-weight: 800; letter-spacing: -.02em; }
+.ia__points p { margin-top: 2px; color: var(--encre-douce); font-size: 15px; }
+.ia__offre { margin-top: 26px; font-size: 14px; font-weight: 700; color: var(--vif); }
+.ia__carte { padding: 26px; }
+.ia__dicte { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; background: rgba(255, 255, 255, .06); color: #F4F5FF; font-size: 14px; font-style: italic; }
+.ia__micro { display: grid; place-items: center; flex: none; width: 38px; height: 38px; border-radius: 50%; background: var(--safran); color: var(--safran-encre); animation: micro 1.6s ease-in-out infinite; }
+.ia__micro .ico { width: 20px; height: 20px; }
+@keyframes micro { 50% { box-shadow: 0 0 0 10px rgba(255, 194, 31, .15); } }
+.ia__carte .mini-ticket { max-width: none; }
+.ia__valider { display: flex; align-items: center; gap: 8px; margin-top: 16px; color: var(--ok-clair); font-size: 14px; font-weight: 700; }
+.ia__valider .ico { width: 18px; height: 18px; }
+
+/* ── Télécharger et installer ───────────────────────── */
+.telecharger { padding: 40px 0 120px; }
+.panneau { align-items: start; }
+.panneau .texte-section { color: var(--encre); }
+.panneau .bouton--grand { margin-top: 26px; }
+.panneau .stores { margin: 22px 0 0; }
+.panneau__telephone { margin-top: 22px; font-weight: 700; font-size: 15px; }
+.panneau__installer { position: relative; padding: 28px; border-radius: 28px; background: rgba(255, 255, 255, .6); }
+.panneau__installer h3 { margin-bottom: 18px; font-size: 20px; font-weight: 800; letter-spacing: -.02em; }
+.installer__etapes { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.installer__etapes li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 14px; align-items: center; }
+.installer__etapes .etape__num { width: 40px; height: 40px; margin: 0; border-radius: 13px; font-size: 17px; }
+.installer__etapes p { color: var(--encre); font-size: 15px; }
+.installer__etapes b { font-weight: 800; }
+.installer__apercu { margin-top: 18px; }
+.installer__apercu summary { cursor: pointer; font-weight: 700; font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
+.installer__apercu > p { margin-top: 10px; font-size: 14px; }
+.installer__schema { margin: 14px 0 0; }
+.installer__schema figcaption { margin-top: 10px; font-size: 13px; }
+.smartscreen { padding: 18px; border-radius: 6px; background: #0F6CBD; color: #FFFFFF; font-family: 'Segoe UI', system-ui, sans-serif; box-shadow: 0 18px 40px -18px rgba(19, 22, 58, .45); font-size: 13px; }
+.smartscreen__titre { font-size: 1.1rem; font-weight: 600; line-height: 1.25; }
+.smartscreen p + p { margin-top: 10px; line-height: 1.45; }
+.smartscreen__marque { display: inline-block; padding: 2px 6px; border: 2px solid var(--safran); border-radius: 4px; font-weight: 600; }
+.smartscreen__pied { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+.smartscreen__pied span { padding: 5px 14px; background: rgba(255, 255, 255, .16); border: 2px solid rgba(255, 255, 255, .5); }
+.smartscreen__pied .smartscreen__marque { border-color: var(--safran); background: none; border-radius: 0; }
+.installer__config { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(19, 22, 58, .15); font-size: 13px; line-height: 1.5; }
+
+/* ── Carte Scan ─────────────────────────────────────── */
+.scan__trouve { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; background: rgba(76, 209, 140, .12); color: var(--ok-clair); }
+.scan__trouve .ico { width: 20px; height: 20px; stroke-width: 2.8; }
+.scan__trouve b { display: block; color: var(--blanc); font-size: 14px; }
+.scan__trouve small { display: block; font-size: 12.5px; }
+
+/* ── Tarifs : ce qui arrive bientôt ─────────────────── */
+.formule li.bientot { color: var(--brume); }
+.formule li.bientot::before { background: rgba(255, 194, 31, .16) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFC21F' stroke-width='3' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7.5V12l3 2'/%3E%3C/svg%3E") center / 12px no-repeat; }
+
+@media (max-width: 860px) {
+  .ia__grille { grid-template-columns: 1fr; gap: 36px; }
+}
+
+/* ── Téléphone : cartes et formules qui glissent ─────── */
+@media (max-width: 600px) {
+  .ia { padding: 88px 0; }
+  .telecharger { padding: 24px 0 88px; }
+  .panneau__installer { display: none; }
+  .glisser { display: block; margin-top: 16px; font-size: 13px; font-weight: 700; color: var(--vif-clair); }
+  .bento, .formules { display: flex; gap: 14px; max-width: none; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    margin-left: calc(-1 * var(--gouttiere)); margin-right: calc(-1 * var(--gouttiere)); padding: 6px var(--gouttiere) 18px; }
+  .bento { margin-top: 24px; }
+  .formules { margin-top: 28px; padding-top: 22px; align-items: stretch; }
+  .bento::-webkit-scrollbar, .formules::-webkit-scrollbar { display: none; }
+  .bento > .carte, .formules > .formule { flex: 0 0 86%; scroll-snap-align: center; }
+  html.js .bento > [data-reveal], html.js .formules > [data-reveal] { opacity: 1; transform: none; }
+}

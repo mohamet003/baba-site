@@ -24,6 +24,21 @@
   $$('[data-essai]').forEach((a) => {
     if (lienWhatsApp) { a.href = lienWhatsApp; a.target = '_blank'; a.rel = 'noopener'; }
   });
+
+  // Sur un PC Windows, les boutons du haut téléchargent l'installeur (classes seul-windows / sauf-windows).
+  const surWindows = (navigator.userAgentData && navigator.userAgentData.platform === 'Windows')
+    || (/Windows NT/.test(navigator.userAgent) && !/Mobile|Android/i.test(navigator.userAgent));
+  document.documentElement.classList.toggle('sur-windows', surWindows);
+  const installeur = reglage((REGLAGES.stores || {}).windows);
+  $$('[data-telecharger]').forEach((a) => {
+    if (!installeur) { a.href = '#installer'; return; }
+    a.href = installeur;
+    // Le téléchargement part, puis la page montre les 4 étapes d'installation.
+    a.addEventListener('click', () => setTimeout(() => {
+      const etapes = $('#installer');
+      if (etapes) etapes.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth', block: 'center' });
+    }, 400));
+  });
   $$('[data-store]').forEach((a) => {
     const url = reglage((REGLAGES.stores || {})[a.dataset.store]);
     if (url) {
@@ -386,40 +401,14 @@
   /* ── Défilement : une seule boucle pour tout ─────────── */
   const progression = $('.progression span');
   const parallaxes = $$('[data-parallax]');
-  const cahier = $('[data-cahier]');
-  const page = $('[data-page]');
-  const notes = $$('[data-note]');
-  const solutions = $$('[data-solution]');
-  const chemin = $('[data-chemin]');
-  const ecrouRoule = $('[data-ecrou-roule]');
-  const etapes = $('[data-etapes]');
   const geant = $('.pied__geant');
-  const pistes = $$('[data-marquee]');
 
-  const cahierCollant = () => !reduit && innerWidth > 860;
-  if (cahierCollant()) cahier.classList.add('collant');
-  else quandVisible(cahier, () => {
-    notes.forEach((n, i) => setTimeout(() => { n.classList.add('raye'); solutions[i].classList.add('vue'); }, 500 + i * 500));
-  });
-
-  pistes.forEach((piste) => {
-    const contenu = piste.innerHTML;
-    piste.innerHTML = contenu + contenu + contenu;
-    piste.__x = 0;
-    piste.__dir = Number(piste.dataset.marquee);
-  });
-  let bandesVisibles = true;
-  suivreVisibilite($('.bandes'), (v) => { bandesVisibles = v; });
-
-  let dernierY = scrollY, vitesse = 0, dernierT = performance.now();
+  let dernierY = scrollY;
   let navCachee = false;
-  const longueur = chemin ? chemin.getTotalLength() : 0;
 
-  function image(t) {
-    const dt = Math.min(64, t - dernierT); dernierT = t;
+  function image() {
     const y = scrollY, vh = innerHeight;
     const dy = y - dernierY; dernierY = y;
-    vitesse += (dy - vitesse) * 0.12;
 
     const max = document.documentElement.scrollHeight - vh;
     progression.style.setProperty('--p', max > 0 ? y / max : 0);
@@ -440,38 +429,6 @@
         if (el.classList.contains('orn')) el.style.setProperty('--py', `${decalage}px`);
         else el.style.transform = `translate3d(0, ${decalage}px, 0)`;
       });
-
-      if (bandesVisibles) {
-        pistes.forEach((piste) => {
-          const tiers = piste.scrollWidth / 3;
-          piste.__x -= piste.__dir * (0.05 * dt + Math.abs(vitesse) * 0.35);
-          if (piste.__x <= -tiers) piste.__x += tiers;
-          if (piste.__x > 0) piste.__x -= tiers;
-          piste.style.transform = `translate3d(${piste.__x}px,0,0)`;
-        });
-      }
-    }
-
-    if (cahier.classList.contains('collant')) {
-      const r = cahier.getBoundingClientRect();
-      const p = borne(-r.top / (r.height - vh));
-      page.style.setProperty('--pr', p);
-      [0.16, 0.4, 0.64].forEach((seuil, i) => {
-        notes[i].classList.toggle('raye', p > seuil);
-        solutions[i].classList.toggle('vue', p > seuil + 0.04);
-      });
-    }
-
-    if (chemin && innerWidth > 860) {
-      const r = etapes.getBoundingClientRect();
-      const p = reduit ? 1 : borne((vh * 0.85 - r.top) / (r.height * 0.75));
-      chemin.parentNode.style.setProperty('--trace', p);
-      const pt = chemin.getPointAtLength(p * longueur);
-      const svg = chemin.ownerSVGElement;
-      const sx = svg.clientWidth / 1000, sy = svg.clientHeight / 120;
-      ecrouRoule.style.setProperty('--ex', `${pt.x * sx}px`);
-      ecrouRoule.style.setProperty('--ey', `${pt.y * sy}px`);
-      ecrouRoule.style.setProperty('--er', `${p * longueur * sx * 3.4}deg`);
     }
 
     if (geant) {
@@ -493,7 +450,7 @@
   const docs = $$('.documents span');
   cycle($('.carte--ventes'), 1300, (i) => docs.forEach((d, j) => d.classList.toggle('on', j === i % docs.length)));
 
-  const modes = $$('.modes span'), recu = $('.recu');
+  const modes = $$('.modes span'), recu = $('.carte--paiements .recu');
   cycle($('.carte--paiements'), 1800, (i) => {
     const k = i % modes.length;
     modes.forEach((m, j) => m.classList.toggle('on', j === k));

@@ -65,6 +65,7 @@
     <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 2.5h12v19l-3-2-3 2-3-2-3 2z"/><path d="M9 7.5h6M9 11.5h6M9 15.5h3.5"/></symbol>
     <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
     <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M2.5 9a14 14 0 0 1 19 0M5.5 12.5a9.5 9.5 0 0 1 13 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" style="fill: currentColor"/></symbol>
+    <symbol id="i-micro" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
   </defs>
 </svg>
@@ -79,12 +80,15 @@
   </a>
   <nav class="nav__liens" aria-label="Sections">
     <a href="#fonctions">Fonctions</a>
-    <a href="#demo">Démo</a>
-    <a href="#hors-ligne">Hors ligne</a>
+    <a href="#kisma-ia">Kisma IA</a>
+    <a href="#telecharger">Télécharger</a>
     <a href="#tarifs">Tarifs</a>
     <a href="#questions">Questions</a>
   </nav>
-  <a class="bouton bouton--safran bouton--petit nav__cta" href="#telecharger" data-essai data-magnet>
+  <a class="bouton bouton--safran bouton--petit nav__cta seul-windows" href="#telecharger" data-telecharger data-magnet>
+    Télécharger
+  </a>
+  <a class="bouton bouton--safran bouton--petit nav__cta sauf-windows" href="#telecharger" data-essai data-magnet>
     Essayer gratuitement
   </a>
   <button class="nav__burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" data-burger>
@@ -94,11 +98,13 @@
 <div class="menu" data-menu hidden>
   <nav aria-label="Menu">
     <a href="#fonctions">Fonctions</a>
+    <a href="#kisma-ia">Kisma IA</a>
+    <a href="#telecharger">Télécharger</a>
     <a href="#demo">Démo</a>
-    <a href="#hors-ligne">Hors ligne</a>
     <a href="#tarifs">Tarifs</a>
     <a href="#questions">Questions</a>
-    <a href="#telecharger" class="menu__cta" data-essai>Essayer 30 jours gratuits</a>
+    <a href="#telecharger" class="menu__cta seul-windows" data-telecharger>Télécharger pour Windows</a>
+    <a href="#telecharger" class="menu__cta sauf-windows" data-essai>Essayer 30 jours gratuits</a>
   </nav>
 </div>
 
@@ -124,7 +130,7 @@
     <div class="hero__texte">
       <p class="puce" data-hero-in>
         <span class="puce__point"></span>
-        <span><strong>Nangadef ?</strong> Kisma arrive sur Android, iPhone et Windows</span>
+        <span><strong>Nangadef ?</strong> Disponible sur Windows, bientôt sur Android et iPhone</span>
       </p>
       <h1 class="hero__titre" data-split>
         Votre quincaillerie, <span class="souligne">bien serrée.<svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 16 C 60 6, 120 4, 180 10 S 270 20, 296 8" pathLength="1"/></svg></span>
@@ -134,7 +140,11 @@
         Pensée pour les quincailleries du Sénégal, du sac de ciment au mètre de câble.
       </p>
       <div class="hero__actions" data-hero-in>
-        <a class="bouton bouton--safran bouton--grand" href="#telecharger" data-essai data-magnet>
+        <a class="bouton bouton--safran bouton--grand seul-windows" href="#telecharger" data-telecharger data-magnet>
+          <svg class="ico" viewBox="0 0 24 24"><use href="#i-monitor"/></svg>
+          Télécharger pour Windows
+        </a>
+        <a class="bouton bouton--safran bouton--grand sauf-windows" href="#telecharger" data-essai data-magnet>
           <svg class="ico" viewBox="0 0 24 24"><use href="#i-chat"/></svg>
           Essayer 30 jours gratuits
         </a>
@@ -144,6 +154,7 @@
         </a>
       </div>
       <ul class="hero__atouts" data-hero-in>
+        <li><svg class="ico" viewBox="0 0 24 24"><use href="#i-check"/></svg>30 jours gratuits</li>
         <li><svg class="ico" viewBox="0 0 24 24"><use href="#i-check"/></svg>Installation gratuite par un agent</li>
         <li><svg class="ico" viewBox="0 0 24 24"><use href="#i-check"/></svg>Marche sans Internet</li>
         <li><svg class="ico" viewBox="0 0 24 24"><use href="#i-check"/></svg>Wave et Orange Money</li>
@@ -210,66 +221,18 @@
     </div>
   </div>
 
-  <a class="hero__suite" href="#cahier" aria-label="Découvrir la suite">
+  <a class="hero__suite" href="#fonctions" aria-label="Découvrir la suite">
     <span></span>
   </a>
-</section>
-
-<!-- ═════════ Les bandes peintes ═════════ -->
-<div class="bandes" aria-hidden="true">
-  <div class="bande bande--safran"><div class="bande__piste" data-marquee="1">
-    <span>Ciment</span><i>✦</i><span>Fer à béton</span><i>✦</i><span>Tôle ondulée</span><i>✦</i><span>Robinets</span><i>✦</i><span>Câbles</span><i>✦</i><span>Peinture</span><i>✦</i><span>Pointes</span><i>✦</i><span>Tuyaux PVC</span><i>✦</i><span>Cadenas</span><i>✦</i>
-  </div></div>
-  <div class="bande bande--vif"><div class="bande__piste" data-marquee="-1">
-    <span>Stock</span><i>●</i><span>Ventes</span><i>●</i><span>Crédits</span><i>●</i><span>Caisse</span><i>●</i><span>Wave</span><i>●</i><span>Orange Money</span><i>●</i><span>Hors ligne</span><i>●</i><span>Factures</span><i>●</i><span>Devis</span><i>●</i>
-  </div></div>
-</div>
-
-<!-- ═════════ Le cahier, c'est fini ═════════ -->
-<section class="cahier" id="cahier" data-cahier>
-  <div class="cahier__colle">
-    <div class="conteneur cahier__grille">
-      <div class="cahier__intro">
-        <p class="surtitre">Avant Kisma</p>
-        <h2 class="titre-section" data-split>Le cahier, c'est fini.</h2>
-        <p class="texte-section">Un cahier se mouille, se perd, se raye. Et il ne dit jamais combien de sacs il reste vraiment. Kisma garde tout, au franc près.</p>
-      </div>
-
-      <div class="cahier__duo">
-        <div class="page" data-page>
-          <div class="page__marge"></div>
-          <div class="page__tache"></div>
-          <p class="page__date">Lundi 2 novembre</p>
-          <p class="note" data-note="0"><span>Ciment 3 sacs → Moussa <em>(crédit ??)</em></span></p>
-          <p class="note" data-note="1"><span>Fer HA10 : il en reste… 12 ? 20 ?</span></p>
-          <p class="note" data-note="2"><span>Caisse du soir : il manque 2 500 F</span></p>
-          <p class="note note--rature">Tôle 4 feuilles <s>18 000</s> 26 000</p>
-        </div>
-
-        <ul class="solutions">
-          <li class="solution" data-solution="0">
-            <span class="tag tag--grand" data-famille="CRD">CRD</span>
-            <div><h3>Chaque crédit a son nom</h3><p>Plafond par client, reste dû, relance sur WhatsApp en un geste.</p></div>
-          </li>
-          <li class="solution" data-solution="1">
-            <span class="tag tag--grand" data-famille="STK">STK</span>
-            <div><h3>Le stock exact, article par article</h3><p>Chaque vente, réception ou sortie le met à jour. Alerte avant la rupture.</p></div>
-          </li>
-          <li class="solution" data-solution="2">
-            <span class="tag tag--grand" data-famille="CAI">CAI</span>
-            <div><h3>Une caisse par vendeur</h3><p>Ouverture, clôture, écart signalé au patron. Fini le « je ne sais pas ».</p></div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- ═════════ Fonctions phares ═════════ -->
 <section class="fonctions" id="fonctions">
   <div class="conteneur">
-    <p class="surtitre surtitre--safran" data-reveal>Fonctions phares</p>
+    <p class="surtitre surtitre--safran" data-reveal>Le cahier, c'est fini</p>
     <h2 class="titre-section" data-split>Tout ce qu'il faut au comptoir. Rien de trop.</h2>
+    <p class="texte-section" data-reveal>Un cahier se mouille, se perd, se raye, et ne dit jamais combien de sacs il reste vraiment. Kisma garde tout, au franc près.</p>
+    <p class="glisser" aria-hidden="true">Glissez pour voir la suite →</p>
 
     <div class="bento">
       <article class="carte carte--ventes" data-reveal data-tilt-carte>
@@ -310,7 +273,7 @@
 
       <article class="carte carte--paiements" data-reveal data-tilt-carte>
         <div class="carte__tete"><span class="tag" data-famille="PAY">PAY</span><h3>Wave et Orange Money</h3></div>
-        <p>Espèces, Wave, Orange Money ou plusieurs à la fois. Le paiement mobile est vérifié tout seul.</p>
+        <p>Espèces, Wave, Orange Money ou plusieurs à la fois. En Pro, le paiement Wave se confirme tout seul ; les autres se cochent d'un geste.</p>
         <div class="modes" data-anim="modes">
           <span>Espèces</span><span class="on">Wave</span><span>Orange Money</span>
         </div>
@@ -356,13 +319,92 @@
       </article>
 
       <article class="carte carte--scan" data-reveal data-tilt-carte>
-        <div class="carte__tete"><span class="tag" data-famille="SCN">SCN</span><h3>Scan et impression</h3></div>
-        <p>Code-barres par la caméra ou la douchette. Ticket sur imprimante Bluetooth 58 ou 80 mm, ou en A4.</p>
+        <div class="carte__tete"><span class="tag" data-famille="SCN">SCN</span><h3>Scan des codes-barres</h3></div>
+        <p>Par la caméra du téléphone ou une douchette. Un code inconnu au comptoir se rattache à l'article d'un geste.</p>
         <div class="scan" data-anim="scan">
           <div class="codebarre"><i></i><span class="laser"></span></div>
-          <div class="imprimante"><div class="imprimante__fente"></div><div class="imprimante__papier"><i></i><i></i><i></i><b>Jërëjëf !</b></div></div>
+          <div class="scan__trouve"><svg class="ico" viewBox="0 0 24 24"><use href="#i-check"/></svg><span><b>Ciment CEM II 42,5</b><small>+1 sac au panier</small></span></div>
         </div>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ Kisma IA ═════════ -->
+<section class="ia" id="kisma-ia">
+  <div class="conteneur ia__grille">
+    <div class="ia__texte">
+      <p class="surtitre surtitre--vif" data-reveal>Kisma IA</p>
+      <h2 class="titre-section titre-section--encre" data-split>Dites-le. Kisma remplit.</h2>
+      <p class="texte-section texte-section--encre" data-reveal>Le maçon envoie sa liste sur WhatsApp, le client la dicte au comptoir : Kisma remplit le panier avec vos articles et vos prix. Vous vérifiez, vous validez. Rien ne s'enregistre sans vous.</p>
+      <ul class="ia__points">
+        <li data-reveal><span class="ia__ico"><svg class="ico" viewBox="0 0 24 24"><use href="#i-receipt"/></svg></span><div><h3>La liste du client devient un devis</h3><p>Collée depuis WhatsApp ou prise en photo, même écrite à la main.</p></div></li>
+        <li data-reveal><span class="ia__ico"><svg class="ico" viewBox="0 0 24 24"><use href="#i-micro"/></svg></span><div><h3>Dictée en wolof et en français</h3><p>Maintenez le micro et parlez : « fukki saaku simaa ak juróomi baar feer fukk ».</p></div></li>
+        <li data-reveal><span class="ia__ico"><svg class="ico" viewBox="0 0 24 24"><use href="#i-chat"/></svg></span><div><h3>Demandez, l'écran s'ouvre rempli</h3><p>« Fais un devis pour Moussa Sarr, valable 15 jours » : une touche l'enregistre.</p></div></li>
+        <li data-reveal><span class="ia__ico"><svg class="ico" viewBox="0 0 24 24"><use href="#i-chart"/></svg></span><div><h3>Le patron pose ses questions</h3><p>« Ma marge ce mois-ci ? » La réponse vient de vos propres chiffres.</p></div></li>
+      </ul>
+      <p class="ia__offre" data-reveal>Dans les formules Pro et Premium. Les questions du patron, en Premium.</p>
+    </div>
+
+    <div class="ia__scene" data-reveal>
+      <div class="carte ia__carte">
+        <p class="ia__dicte"><span class="ia__micro"><svg class="ico" viewBox="0 0 24 24"><use href="#i-micro"/></svg></span><span>« fukki saaku simaa ak juróomi baar feer fukk »</span></p>
+        <div class="mini-ticket">
+          <div class="mini-ticket__ligne"><span>Ciment CEM II 42,5 · 10 sac</span><b>46 000</b></div>
+          <div class="mini-ticket__ligne"><span>Fer à béton HA10 · 5 barre</span><b>17 500</b></div>
+          <div class="mini-ticket__total"><span>Panier</span><b>63 500 FCFA</b></div>
+        </div>
+        <p class="ia__valider"><svg class="ico" viewBox="0 0 24 24"><use href="#i-check"/></svg>Aux prix de la boutique, prêt à valider</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ Télécharger et installer ═════════ -->
+<section class="telecharger" id="telecharger">
+  <div class="conteneur">
+    <div class="panneau" data-reveal>
+      <div class="panneau__orn" aria-hidden="true">
+        <svg class="orn-fixe" style="--x:6%;--y:14%;--s:44px;--c:#1B2060"><use href="#etoile"/></svg>
+        <svg class="orn-fixe" style="--x:90%;--y:78%;--s:64px;--c:#E03E3E"><use href="#soleil"/></svg>
+        <svg class="orn-fixe tourne" style="--x:48%;--y:88%;--s:36px;--c:#1B2060"><use href="#ecrou"/></svg>
+      </div>
+      <div class="panneau__texte">
+        <h2 class="titre-section titre-section--encre" data-split>Kisma sur votre PC, dès aujourd'hui.</h2>
+        <p class="texte-section texte-section--encre">Téléchargez la version Windows et essayez-la 30 jours, gratuitement. Vous préférez qu'on s'en occupe ? Un agent vient à la boutique, reprend vos articles et votre stock, crée les comptes et forme l'équipe. Gratuit aussi.</p>
+        <a class="bouton bouton--encre bouton--grand seul-windows" href="#installer" data-telecharger data-magnet>
+          <svg class="ico" viewBox="0 0 24 24"><use href="#i-monitor"/></svg>
+          Télécharger pour Windows
+        </a>
+        <p class="panneau__telephone sauf-windows">Kisma s'installe sur un PC Windows : ouvrez kisma-apps.com sur le PC de la boutique.</p>
+        <div class="stores">
+          <a class="store" data-store="android" href="#telecharger"><svg class="ico" viewBox="0 0 24 24"><use href="#i-phone"/></svg><span><small data-store-etat>Bientôt sur</small><b>Google Play</b></span></a>
+          <a class="store" data-store="ios" href="#telecharger"><svg class="ico" viewBox="0 0 24 24"><use href="#i-phone"/></svg><span><small data-store-etat>Bientôt sur</small><b>App Store</b></span></a>
+        </div>
+      </div>
+      <div class="panneau__installer" id="installer">
+        <h3>Installer en 4 étapes</h3>
+        <ol class="installer__etapes">
+          <li><span class="etape__num">1</span><p>Ouvrez le fichier <b>Kisma-Setup.exe</b> que vous venez de télécharger.</p></li>
+          <li><span class="etape__num">2</span><p>Si un avertissement bleu s'affiche, cliquez sur <b>Informations complémentaires</b>.</p></li>
+          <li><span class="etape__num">3</span><p>Cliquez sur <b>Exécuter quand même</b>, puis suivez l'installation.</p></li>
+          <li><span class="etape__num">4</span><p>Ouvrez Kisma et inscrivez votre boutique : le code de vérification arrive par e-mail.</p></li>
+        </ol>
+        <details class="installer__apercu">
+          <summary>Pourquoi cet avertissement bleu ?</summary>
+          <p>Pendant le test, Kisma n'a pas encore la signature de Microsoft : Windows avertit au premier lancement. Ne continuez que si le fichier vient de cette page.</p>
+          <figure class="installer__schema">
+            <div class="smartscreen" aria-hidden="true">
+          <p class="smartscreen__titre">Windows a protégé votre ordinateur</p>
+          <p>Microsoft Defender SmartScreen a empêché le démarrage d'une application non reconnue.</p>
+          <p><span class="smartscreen__marque">Informations complémentaires</span></p>
+          <div class="smartscreen__pied"><span class="smartscreen__marque">Exécuter quand même</span><span>Ne pas exécuter</span></div>
+        </div>
+            <figcaption>Les deux choix à faire sont encadrés en safran.</figcaption>
+          </figure>
+        </details>
+        <p class="installer__config">Windows 10 ou 11, 64 bits · Internet pour l'inscription, puis au moins une fois par semaine · Pas besoin d'être administrateur du PC. <span data-version>Version de test 0.11.1.</span></p>
+      </div>
     </div>
   </div>
 </section>
@@ -455,40 +497,6 @@
   </div>
 </section>
 
-<!-- ═════════ Pensée pour le Sénégal ═════════ -->
-<section class="senegal">
-  <div class="conteneur">
-    <p class="surtitre surtitre--vif" data-reveal>Pensée ici, pour ici</p>
-    <h2 class="titre-section titre-section--encre" data-split>Faite pour le Sénégal, au franc CFA près.</h2>
-    <div class="chiffres">
-      <div class="chiffre" data-reveal><b><span data-compte="30">30</span></b><span class="chiffre__unite">jours</span><p>d'essai gratuit, sans moyen de paiement</p></div>
-      <div class="chiffre" data-reveal><b><span data-compte="0">0</span></b><span class="chiffre__unite">FCFA</span><p>pour la mise en service : un agent installe et forme l'équipe</p></div>
-      <div class="chiffre" data-reveal><b><span data-compte="3">3</span></b><span class="chiffre__unite">écrans</span><p>Android, iPhone et Windows, la même boutique partout</p></div>
-      <div class="chiffre" data-reveal><b><span data-compte="10">10</span></b><span class="chiffre__unite">ans</span><p>de conservation de vos données, avec un export toujours possible</p></div>
-    </div>
-    <ul class="pastilles-senegal" data-reveal>
-      <li>Prix en FCFA</li><li>Imprimante Bluetooth 58 ou 80 mm</li><li>Numérotation continue des factures</li><li>Facture validée non modifiable</li><li>TVA réglable</li><li>Montants en lettres</li><li>Partage WhatsApp</li><li>Petit Android, peu de data</li><li>Données sauvegardées chaque jour</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ═════════ Comment ça marche ═════════ -->
-<section class="etapes" id="comment" data-etapes>
-  <div class="conteneur">
-    <p class="surtitre surtitre--vif" data-reveal>Comment ça marche</p>
-    <h2 class="titre-section titre-section--encre" data-split>Trois étapes, et le cahier part à la retraite.</h2>
-    <div class="etapes__piste">
-      <svg class="etapes__chemin" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><path d="M40 60 C 220 -10, 330 130, 500 60 S 800 -10, 960 60" pathLength="1" data-chemin/></svg>
-      <svg class="etapes__ecrou" viewBox="0 0 100 100" aria-hidden="true" data-ecrou-roule><use href="#ecrou"/></svg>
-      <ol class="etapes__liste">
-        <li class="etape" data-reveal><span class="etape__num">1</span><h3>Écrivez-nous</h3><p>Un message WhatsApp suffit. On cale un passage à la boutique.</p></li>
-        <li class="etape" data-reveal><span class="etape__num">2</span><h3>Un agent installe</h3><p>Il reprend vos articles et votre stock, crée les comptes et forme l'équipe. Gratuit.</p></li>
-        <li class="etape" data-reveal><span class="etape__num">3</span><h3>Vous vendez</h3><p>Dès le premier jour. Trente jours pour essayer, sans rien payer.</p></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
 <!-- ═════════ Tarifs ═════════ -->
 <section class="tarifs" id="tarifs">
   <div class="conteneur">
@@ -507,6 +515,7 @@
       <button type="button" role="radio" aria-checked="false" data-palier="2">Jusqu'à 10 <em>6 appareils</em></button>
       <span class="duree__curseur" aria-hidden="true"></span>
     </div>
+    <p class="glisser" aria-hidden="true">Glissez pour voir les trois formules →</p>
 
     <div class="formules">
       <article class="formule" data-reveal data-tilt-carte>
@@ -523,86 +532,19 @@
         <p class="formule__pour">Pour piloter et encaisser plus vite</p>
         <p class="formule__prix"><b data-prix="25000" data-par-palier="25000,30000,35000">25 000</b><span>FCFA <span data-par>/ mois</span></span></p>
         <p class="formule__jour" data-jour="25000" data-par-palier="25000,30000,35000">soit environ 833 FCFA par jour</p>
-        <ul><li>Tout l'Essentiel</li><li>Wave intégré à la caisse</li><li>Kisma IA : la liste du client devient un devis</li><li>Analyses : semaine, mois, marges</li><li>Exports pour le comptable</li><li>Suggestions de commande</li></ul>
+        <ul><li>Tout l'Essentiel</li><li>Wave intégré à la caisse</li><li>Kisma IA : la liste du client devient un devis</li><li>Analyses : semaine, mois, marges</li><li>Exports pour le comptable</li><li>Suggestions de commande</li></ul>
         <a class="bouton bouton--safran" href="#telecharger" data-essai data-magnet>Essayer 30 jours</a>
       </article>
       <article class="formule" data-reveal data-tilt-carte>
         <h3>Premium</h3>
-        <p class="formule__pour">Tout, et WhatsApp qui part tout seul</p>
+        <p class="formule__pour">Pour piloter avec Kisma IA</p>
         <p class="formule__prix"><b data-prix="35000" data-par-palier="35000,40000,45000">35 000</b><span>FCFA <span data-par>/ mois</span></span></p>
         <p class="formule__jour" data-jour="35000" data-par-palier="35000,40000,45000">soit environ 1 167 FCFA par jour</p>
-        <ul><li>Tout le Pro</li><li>WhatsApp automatique (500 messages par mois)</li><li>Kisma IA pour piloter : « Ma marge ce mois-ci ? »</li><li>Aide WhatsApp prioritaire</li></ul>
+        <ul><li>Tout le Pro</li><li>Kisma IA pour piloter : « Ma marge ce mois-ci ? »</li><li>Aide WhatsApp prioritaire</li><li class="bientot">Bientôt : WhatsApp qui part tout seul (500 messages par mois)</li></ul>
         <a class="bouton bouton--fantome" href="#telecharger" data-essai>Choisir Premium</a>
       </article>
     </div>
     <p class="tarifs__note" data-reveal>Prix TTC. Paiement par Wave ou Orange Money, depuis n'importe quel numéro. Plusieurs boutiques : la plus chère au plein tarif, chacune des autres à −20 %. Parrainez une boutique : un mois offert à chacun.</p>
-  </div>
-</section>
-
-<!-- ═════════ Télécharger ═════════ -->
-<section class="telecharger" id="telecharger">
-  <div class="conteneur">
-    <div class="panneau" data-reveal>
-      <div class="panneau__orn" aria-hidden="true">
-        <svg class="orn-fixe" style="--x:6%;--y:14%;--s:44px;--c:#1B2060"><use href="#etoile"/></svg>
-        <svg class="orn-fixe" style="--x:90%;--y:78%;--s:64px;--c:#E03E3E"><use href="#soleil"/></svg>
-        <svg class="orn-fixe tourne" style="--x:48%;--y:88%;--s:36px;--c:#1B2060"><use href="#ecrou"/></svg>
-      </div>
-      <div class="panneau__texte">
-        <h2 class="titre-section titre-section--encre" data-split>Kisma arrive dans votre poche.</h2>
-        <p class="texte-section texte-section--encre">Sur Android, iPhone et Windows. En attendant la sortie, un agent vous l'installe et vous l'essayez trente jours, gratuitement.</p>
-        <div class="stores">
-          <a class="store" data-store="android" href="#telecharger"><svg class="ico" viewBox="0 0 24 24"><use href="#i-phone"/></svg><span><small data-store-etat>Bientôt sur</small><b>Google Play</b></span></a>
-          <a class="store" data-store="ios" href="#telecharger"><svg class="ico" viewBox="0 0 24 24"><use href="#i-phone"/></svg><span><small data-store-etat>Bientôt sur</small><b>App Store</b></span></a>
-          <a class="store" data-store="windows" href="#telecharger"><svg class="ico" viewBox="0 0 24 24"><use href="#i-monitor"/></svg><span><small data-store-etat>Bientôt sur</small><b>Windows</b></span></a>
-        </div>
-        <a class="bouton bouton--encre bouton--grand" href="#telecharger" data-essai data-magnet>
-          <svg class="ico" viewBox="0 0 24 24"><use href="#i-chat"/></svg>
-          Essayer 30 jours gratuits
-        </a>
-      </div>
-      <div class="panneau__icone" aria-hidden="true" data-parallax="-0.06">
-        <div class="grande-icone">
-          <svg viewBox="0 0 100 100" style="--k:#F4F5FF"><use href="#k-symbole"/></svg>
-        </div>
-        <p class="grande-icone__nom">Kisma</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════ Installer sur Windows (étape 5b.7) ═════════ -->
-<section class="installer" id="installer">
-  <div class="conteneur">
-    <p class="surtitre surtitre--vif" data-reveal>Version de test pour Windows</p>
-    <h2 class="titre-section titre-section--encre" data-split>Installer Kisma sur votre PC.</h2>
-    <p class="texte-section texte-section--encre" data-reveal>Kisma n'a pas encore de signature Microsoft pendant le test : Windows affiche donc un avertissement bleu au premier lancement. Ne continuez que si vous avez téléchargé le fichier depuis cette page.</p>
-    <div class="installer__grille">
-      <ol class="installer__etapes">
-        <li data-reveal><span class="etape__num">1</span><p>Ouvrez le fichier <b>Kisma-Setup.exe</b> que vous venez de télécharger.</p></li>
-        <li data-reveal><span class="etape__num">2</span><p>Si l'avertissement bleu s'affiche, cliquez sur <b>Informations complémentaires</b>.</p></li>
-        <li data-reveal><span class="etape__num">3</span><p>Cliquez sur <b>Exécuter quand même</b>, puis suivez l'installation.</p></li>
-        <li data-reveal><span class="etape__num">4</span><p>Ouvrez Kisma et inscrivez votre boutique. Votre code de vérification vous arrive par e-mail.</p></li>
-      </ol>
-      <figure class="installer__schema" data-reveal>
-        <div class="smartscreen" aria-hidden="true">
-          <p class="smartscreen__titre">Windows a protégé votre ordinateur</p>
-          <p>Microsoft Defender SmartScreen a empêché le démarrage d'une application non reconnue.</p>
-          <p><span class="smartscreen__marque">Informations complémentaires</span></p>
-          <div class="smartscreen__pied"><span class="smartscreen__marque">Exécuter quand même</span><span>Ne pas exécuter</span></div>
-        </div>
-        <figcaption>Schéma de l'avertissement : les deux choix à faire sont encadrés en safran.</figcaption>
-      </figure>
-    </div>
-    <div class="installer__config" data-reveal>
-      <h3>Configuration requise</h3>
-      <ul>
-        <li>Un PC sous Windows 10 ou 11, 64 bits.</li>
-        <li>Internet pour l'inscription, puis au moins une fois par semaine pour la synchronisation.</li>
-        <li>Pas besoin d'être administrateur du PC.</li>
-      </ul>
-      <p class="installer__version" data-version>Version de test 0.11.0.</p>
-    </div>
   </div>
 </section>
 
@@ -618,7 +560,7 @@
       </details>
       <details data-reveal>
         <summary>De quel matériel ai-je besoin ?<svg class="ico" viewBox="0 0 24 24"><use href="#i-plus"/></svg></summary>
-        <div class="faq__reponse"><p>Un téléphone Android, même d'entrée de gamme, un iPhone ou un ordinateur Windows. Pour les tickets, une imprimante thermique Bluetooth de 58 ou 80 mm, ou une imprimante A4. Une douchette code-barres est la bienvenue, la caméra du téléphone suffit aussi.</p></div>
+        <div class="faq__reponse"><p>Un téléphone Android, même d'entrée de gamme, un iPhone ou un ordinateur Windows. Tickets, factures et devis se partagent sur WhatsApp en image ou en PDF, et s'impriment sur une imprimante A4 ; l'imprimante thermique Bluetooth arrive bientôt. Une douchette code-barres est la bienvenue, la caméra du téléphone suffit aussi.</p></div>
       </details>
       <details data-reveal>
         <summary>Mes vendeurs voient-ils mes prix d'achat ?<svg class="ico" viewBox="0 0 24 24"><use href="#i-plus"/></svg></summary>
@@ -626,7 +568,7 @@
       </details>
       <details data-reveal>
         <summary>Mes données sont-elles en sécurité ?<svg class="ico" viewBox="0 0 24 24"><use href="#i-plus"/></svg></summary>
-        <div class="faq__reponse"><p>Pendant le test, les informations de votre boutique, de vos employés et de vos clients sont gardées sur l'appareil et sur un serveur en Europe, et sauvegardées sous forme chiffrée. Elles servent uniquement à faire fonctionner Kisma pour votre boutique. En cas de panne, un rapport technique est envoyé au service Sentry, en Europe, et nous en retirons les informations sur vos clients. Le service est en test et peut s'interrompre. Pour toute question ou pour demander la suppression de vos données, écrivez-nous sur WhatsApp.</p></div>
+        <div class="faq__reponse"><p>Pendant le test, les informations de votre boutique, de vos employés et de vos clients sont gardées sur l'appareil et sur un serveur en Europe, et sauvegardées sous forme chiffrée. Après la fin d'un abonnement, elles restent gardées 10 ans. Elles servent uniquement à faire fonctionner Kisma pour votre boutique. En cas de panne, un rapport technique est envoyé au service Sentry, en Europe, et nous en retirons les informations sur vos clients. Le service est en test et peut s'interrompre. Pour toute question ou pour demander la suppression de vos données, écrivez-nous sur WhatsApp.</p></div>
       </details>
       <details data-reveal>
         <summary>Les factures sont-elles conformes ?<svg class="ico" viewBox="0 0 24 24"><use href="#i-plus"/></svg></summary>
@@ -634,7 +576,7 @@
       </details>
       <details data-reveal>
         <summary>Et si je paie en retard ?<svg class="ico" viewBox="0 0 24 24"><use href="#i-plus"/></svg></summary>
-        <div class="faq__reponse"><p>Vous gardez tout le service pendant 7 jours. Ensuite l'app passe en lecture seule : vous consultez, exportez et encaissez encore les dettes de vos clients. Un paiement Wave ou Orange Money rouvre tout aussitôt, rien n'est effacé.</p></div>
+        <div class="faq__reponse"><p>Vous gardez tout le service pendant 7 jours. Ensuite l'app passe en lecture seule : vous consultez, exportez et encaissez encore les dettes de vos clients. Dès que vous payez, tout se rouvre, et rien n'est effacé.</p></div>
       </details>
       <details data-reveal>
         <summary>J'ai plusieurs boutiques, comment faire ?<svg class="ico" viewBox="0 0 24 24"><use href="#i-plus"/></svg></summary>
@@ -670,6 +612,8 @@
     </div>
     <nav class="pied__liens" aria-label="Pied de page">
       <a href="#fonctions">Fonctions</a>
+      <a href="#kisma-ia">Kisma IA</a>
+      <a href="#telecharger">Télécharger</a>
       <a href="#demo">Démo</a>
       <a href="#tarifs">Tarifs</a>
       <a href="#questions">Questions</a>
