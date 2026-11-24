@@ -15,4 +15,13 @@ window.KISMA = {
     ios: '',
     windows: 'https://github.com/mohamet003/baba-site/releases/latest/download/Kisma-Setup.exe',
   },
+
+  // Le film de présentation (étape 15.3), servi par le serveur de Kisma comme les tutos (/srv/baba/tutos de la VM).
+  // Tant qu'un fichier ne répond pas, la section du film reste cachée. Vide : pas de film.
+  film: {
+    large: 'https://kisma-api.duckdns.org/tutos/film-16x9.mp4',
+    debout: 'https://kisma-api.duckdns.org/tutos/film-9x16.mp4',
+    affiche_large: 'film-16x9.jpg',
+    affiche_debout: 'film-9x16.jpg',
+  },
 };

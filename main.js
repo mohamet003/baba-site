@@ -51,6 +51,20 @@
     }
   });
 
+  /* ── Le film (reglages.js) ──────────────────────────── */
+  // Servi par le serveur de Kisma, comme les tutos : la section ne paraît que si la vidéo répond. Debout sur un
+  // écran en hauteur (téléphone), en largeur ailleurs.
+  const film = $('[data-film]'), videoFilm = $('[data-film-video]');
+  const reglagesFilm = REGLAGES.film || {};
+  if (film && videoFilm && reglage(reglagesFilm.large)) {
+    const debout = matchMedia('(orientation: portrait) and (max-width: 760px)').matches && reglage(reglagesFilm.debout);
+    film.classList.toggle('film--debout', Boolean(debout));
+    const choix = debout ? 'debout' : 'large';
+    videoFilm.poster = reglage(reglagesFilm[`affiche_${choix}`]) || '';
+    videoFilm.addEventListener('loadedmetadata', () => { film.hidden = false; }, { once: true });
+    videoFilm.src = reglage(reglagesFilm[choix]);
+  }
+
   // Version de test : remplie à la publication, cachée en aperçu local.
   const version = $('[data-version]');
   if (version && version.textContent.includes('%%')) version.hidden = true;
